@@ -13,6 +13,14 @@
   }
 }
 
+.vertical-timeline-element-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vertical-timeline-element-info{
+  text-align: justify;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
