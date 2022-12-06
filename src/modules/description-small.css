@@ -1,0 +1,35 @@
+.common-info-contatiner {
+    display: flex;
+    justify-content: center;
+  }
+  .common-info {
+    table-layout: auto;
+    border-collapse: collapse;
+    border: 1px solid grey;
+    width: 400px;
+    background-color: #f9f9f9;
+  }
+  .common-info tr {
+    border-bottom: 1px solid grey;
+  }
+  .common-info__title-image {
+    text-align: center;
+  }
+  
+  .common-info__title {
+    font-size:xx-large;
+    text-align: center;
+    background-color: #eaecf0;
+  }
+  .common-info__text {
+    text-align: left;
+    padding-bottom: 3%;
+  }
+  .common-info__text-title{
+    padding-left: 5%;
+    background-color: #CFD1D5;
+  }
+  .common-info__text-info {
+    padding-left: 3%;
+    padding-right: 5%;
+  }

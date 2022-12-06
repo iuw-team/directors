@@ -12,7 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.lang-switcher {
+  display: flex;
+  justify-content:end;
+  column-gap: 20px;
+}
 .vertical-timeline-element-icon{
   display: flex;
   align-items: center;
