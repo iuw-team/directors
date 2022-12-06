@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/directors/static/css/main.d699ed51.css",
-    "main.js": "/directors/static/js/main.fce000e8.js",
+    "main.css": "/directors/static/css/main.af6f9bb5.css",
+    "main.js": "/directors/static/js/main.14b6cd37.js",
     "static/js/787.a0b1cdd3.chunk.js": "/directors/static/js/787.a0b1cdd3.chunk.js",
+    "static/media/Yury_Tarich.jpg": "/directors/static/media/Yury_Tarich.c8194ef4f508dbe83a31.jpg",
     "static/media/logo.svg": "/directors/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/masks-theater.svg": "/directors/static/media/masks-theater.4c988cc88b38aab0efd54765d1dcd115.svg",
     "static/media/award.svg": "/directors/static/media/award.dbd7b4e73a4f7b2e9f09297d559a4ae4.svg",
     "static/media/handshake.svg": "/directors/static/media/handshake.963648d512dbc0cf718ff1add55297fc.svg",
     "static/media/student.svg": "/directors/static/media/student.82fc4c09a901ff5475fddde209e2380a.svg",
     "index.html": "/directors/index.html",
     "static/media/monument.svg": "/directors/static/media/monument.e037cf4d978dba041d89ecf7d71dc354.svg",
-    "main.d699ed51.css.map": "/directors/static/css/main.d699ed51.css.map",
-    "main.fce000e8.js.map": "/directors/static/js/main.fce000e8.js.map",
+    "main.af6f9bb5.css.map": "/directors/static/css/main.af6f9bb5.css.map",
+    "main.14b6cd37.js.map": "/directors/static/js/main.14b6cd37.js.map",
     "787.a0b1cdd3.chunk.js.map": "/directors/static/js/787.a0b1cdd3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d699ed51.css",
-    "static/js/main.fce000e8.js"
+    "static/css/main.af6f9bb5.css",
+    "static/js/main.14b6cd37.js"
   ]
 }
