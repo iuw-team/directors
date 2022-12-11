@@ -1,4 +1,10 @@
 import TarichImage from '../resources/title-image/Yury_Tarich.jpg';
+import TarichForestTail from '../resources/gallery/Tarich_forest_cinema.jpg';
+import TarichCaptainTail from '../resources/gallery/Tarich_Captain.jpg';
+import TarichMongolTail from '../resources/gallery/Tarich_mongol.jpg';
+import TarichBylatBatyr from '../resources/gallery/Tarich_BulatBatyr.jpg';
+import TarichFlyers from '../resources/gallery/Tarich_Flyers.jpg';
+
 
 const DEFAULT_ICON_SIZE = 40;
 export const getIcon = (iconName, iconSize = DEFAULT_ICON_SIZE) => {
@@ -19,5 +25,21 @@ export const getTitleImage = (authorId, imageSize = {width: DEFAULT_IMAGE_WIDTH,
        alt="Unknown author"/>
     )
 }  
+
+
+export const getImageBatch = (authorId) => {
+   let arrImages;
+   let dictResult;
+    switch(authorId){
+      case 0:
+      case 1:
+      case 2:
+        arrImages = [TarichForestTail, TarichCaptainTail, TarichMongolTail, TarichBylatBatyr, TarichFlyers];
+        break;
+      default:
+        arrImages = [];
+    }
+    return arrImages;
+}
 
 

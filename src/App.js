@@ -11,6 +11,7 @@ import {messages} from './locales/messages';
 import {useState} from 'react'
 import { Milestones } from './modules/Milestones';
 import { Description } from './modules/Description';
+import { Gallery } from './modules/Gallery';
 
 
 function App() {
@@ -19,13 +20,13 @@ const [currLocale, setCurrLocale] = useState(locale);
 
 const handleFunc = ({ target: {value} }) =>{
       setCurrLocale(value);
-}
-  
+};
   return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleFunc}></Header>
     <Description authorId = {0}></Description>
     <Milestones></Milestones>
+    <Gallery authorId={0}></Gallery>
     </IntlProvider>
   );
 }
