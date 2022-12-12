@@ -1,10 +1,12 @@
 import {
     LOCALES
 } from './locales';
+
 export const messages = {
     [LOCALES.ENGLISH]:{
         langOption: "Chosen language",
-        
+        galleryTitle: 'The most famous works of the author',
+        workSample: "The sample of author's work",
         authorName: ['Yuri Viktorovich Tarich', 'Dmitry Vladimirovich Iosifov', 'Vladimir Vasilievich Pertsov', 'Yuri Alexandrovich Elkhov', 'Margarita Naimovna Kasymova'],
         birthDateTitle: 'Date of birth',
         birthDate: ['January 24, 1885', 'October 22, 1965', 'April 25, 1936', 'December 7, 1940', 'April 10, 1938'],
@@ -26,6 +28,8 @@ export const messages = {
         birthDateTitle: 'Дата рождения',
         birthDate: ['24 января 1885', '22 октября 1965', '25 апреля 1936', '7 декабря 1939', '10 апреля 1938'],
         deathDateTitle: 'Дата смерти',
+        galleryTitle: 'Наиболее известные работы автора',
+        workSample: 'Пример произведения автора',
         deathDate: ['21 февраля 1967', '-', '25 ноября 2018', '-', '-'],
         profTitle: 'Профессия',
         profType: ['Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'],

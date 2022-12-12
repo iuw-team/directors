@@ -26,7 +26,7 @@ const handleFunc = ({ target: {value} }) =>{
     <Header currentLocale={currLocale} handleFunc={handleFunc}></Header>
     <Description authorId = {0}></Description>
     <Milestones></Milestones>
-    <Gallery></Gallery>
+    <Gallery authorId= {0}></Gallery>
 
     </IntlProvider>
   );

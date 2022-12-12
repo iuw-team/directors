@@ -4,8 +4,9 @@ import TarichCaptainTail from '../resources/gallery/Tarich_Captain.jpg';
 import TarichMongolTail from '../resources/gallery/Tarich_mongol.jpg';
 import TarichBylatBatyr from '../resources/gallery/Tarich_BulatBatyr.jpg';
 import TarichFlyers from '../resources/gallery/Tarich_Flyers.jpg';
+import KinoBack from '../resources/gallery/Kino_looper.jpg';
 
-
+const Tarich_FIlm_Url = 'https://www.youtube.com/embed/ZAYhyhsvXdY';
 const DEFAULT_ICON_SIZE = 40;
 export const getIcon = (iconName, iconSize = DEFAULT_ICON_SIZE) => {
     return(
@@ -26,7 +27,16 @@ export const getTitleImage = (authorId, imageSize = {width: DEFAULT_IMAGE_WIDTH,
     )
 }  
 
-
+export const getAuthorUrl =  (authorId) => {
+  switch(authorId){
+    case 0:
+    case 1:
+      return Tarich_FIlm_Url;
+  }
+}
+export const getCinemaThumbnail = () => {
+  return KinoBack;
+}
 export const getImageBatch = (authorId) => {
    let arrImages;
    let dictResult;
