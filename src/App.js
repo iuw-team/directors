@@ -11,7 +11,7 @@ import {messages} from './locales/messages';
 import {useState} from 'react'
 import { Milestones } from './modules/Milestones';
 import { Description } from './modules/Description';
-import { Gallery } from './modules/Gallery';
+import { Gallery } from './modules/TestGallery';
 
 
 function App() {
@@ -26,7 +26,8 @@ const handleFunc = ({ target: {value} }) =>{
     <Header currentLocale={currLocale} handleFunc={handleFunc}></Header>
     <Description authorId = {0}></Description>
     <Milestones></Milestones>
-    <Gallery authorId={0}></Gallery>
+    <Gallery></Gallery>
+
     </IntlProvider>
   );
 }

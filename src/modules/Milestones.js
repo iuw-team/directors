@@ -10,7 +10,8 @@ import TheaterIcon from '../icons/masks-theater.svg';
 import MoscowIcon from '../icons/kremlin.png';
 import CameraIcon from '../icons/camera.png';
 import { getIcon } from './Services';
-export const Milestones = () => {
+
+export const Milestones = (authorId) => {
     return(
         <VerticalTimeline
         lineColor={'red'}

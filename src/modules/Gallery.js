@@ -1,10 +1,10 @@
 import './gallery-small.css';
+import ReactImageGallery from 'react-image-gallery';
 import React from 'react';
 import { messages } from '../locales/messages';
 import {getImageBatch } from './Services';
 import { FormattedMessage, useIntl } from 'react-intl';
 import {useState, useEffect, useRef} from 'react'
-
 export const Gallery = ({authorId}) => {
     const intl = useIntl();
     const arrImgInfo = intl.messages['gallery'];
@@ -42,9 +42,23 @@ export const Gallery = ({authorId}) => {
         }
     });
 
-    console.log(arrImages[0]);
+    let images = new Array();
+    arrImages.forEach( (imageSrc) => {
+        images.push(
+            {
+                original  : imageSrc,
+                thumbnail : imageSrc,
+                originalWidth: '50%',
+                originalHeigth: '50%',
+                thumbnailWidth : '300px',
+                thumbnailHeight : '300px',
+            }
+        );
+    });
     return(
         <div className='gallery'>
+        <ReactImageGallery items={images}></ReactImageGallery>
+
             <p><img className='gallery__title-image' ref={titleRef} src={arrImages[0]} alt='Main image'/></p>
             <p className='gallery_title-image-info' ref={infoRef}>{infoText}</p>
             <ul id='gallery__batch'>{
