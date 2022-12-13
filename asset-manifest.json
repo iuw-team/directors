@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/directors/static/css/main.4d7e4e65.css",
-    "main.js": "/directors/static/js/main.403eeb3a.js",
+    "main.css": "/directors/static/css/main.0c5cd2f2.css",
+    "main.js": "/directors/static/js/main.fb337595.js",
     "static/js/787.a0b1cdd3.chunk.js": "/directors/static/js/787.a0b1cdd3.chunk.js",
+    "static/media/title-gallery.jpg": "/directors/static/media/title-gallery.7fb87b480fb18a5b0134.jpg",
     "static/media/Tarich_forest_cinema.jpg": "/directors/static/media/Tarich_forest_cinema.d8f66eb47a0ec891f30b.jpg",
     "static/media/Tarich_Captain.jpg": "/directors/static/media/Tarich_Captain.e0ef07fa18328f27c65f.jpg",
+    "static/media/Kino_looper.jpg": "/directors/static/media/Kino_looper.0d974d301486eb5ab411.jpg",
     "static/media/Yury_Tarich.jpg": "/directors/static/media/Yury_Tarich.c8194ef4f508dbe83a31.jpg",
     "static/media/Tarich_Flyers.jpg": "/directors/static/media/Tarich_Flyers.93129ead3365ead05df5.jpg",
     "static/media/Tarich_mongol.jpg": "/directors/static/media/Tarich_mongol.a5963c1f2f7be0317232.jpg",
+    "static/media/map_marker.png": "/directors/static/media/map_marker.4864bf08696f1439e095.png",
     "static/media/logo.svg": "/directors/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "static/media/masks-theater.svg": "/directors/static/media/masks-theater.4c988cc88b38aab0efd54765d1dcd115.svg",
     "static/media/award.svg": "/directors/static/media/award.dbd7b4e73a4f7b2e9f09297d559a4ae4.svg",
@@ -15,12 +18,12 @@
     "static/media/student.svg": "/directors/static/media/student.82fc4c09a901ff5475fddde209e2380a.svg",
     "index.html": "/directors/index.html",
     "static/media/monument.svg": "/directors/static/media/monument.e037cf4d978dba041d89ecf7d71dc354.svg",
-    "main.4d7e4e65.css.map": "/directors/static/css/main.4d7e4e65.css.map",
-    "main.403eeb3a.js.map": "/directors/static/js/main.403eeb3a.js.map",
+    "main.0c5cd2f2.css.map": "/directors/static/css/main.0c5cd2f2.css.map",
+    "main.fb337595.js.map": "/directors/static/js/main.fb337595.js.map",
     "787.a0b1cdd3.chunk.js.map": "/directors/static/js/787.a0b1cdd3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d7e4e65.css",
-    "static/js/main.403eeb3a.js"
+    "static/css/main.0c5cd2f2.css",
+    "static/js/main.fb337595.js"
   ]
 }
