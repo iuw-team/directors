@@ -20,7 +20,7 @@ export const Description = ({authorId}) => {
                       <th className="common-info__title" colspan="2">{arrAuthorName[authorId]}</th>
                     </tr>
                     <tr>
-                        <td className="common-info__title-image" colspan='2'>{getTitleImage(0)}</td>
+                        <td className="common-info__title-image" colspan='2'>{getTitleImage(authorId)}</td>
                     </tr>
                     <tr>
                         <th className="common-info__text common-info__text-title" scope="row">

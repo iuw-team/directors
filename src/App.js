@@ -27,9 +27,9 @@ const handleFunc = ({ target: {value} }) =>{
   return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleFunc}></Header>
-    <Description authorId = {0}></Description>
-    <Milestones></Milestones>
-    <Gallery authorId= {0}></Gallery>
+    <Description authorId = {2}></Description>
+    <Milestones authorId={0}></Milestones>
+    <Gallery authorId= {4}></Gallery>
     <MapPoints authorId= {0}></MapPoints>
     <Footer></Footer>
     </IntlProvider>
