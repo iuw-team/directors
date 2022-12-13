@@ -11,11 +11,16 @@ import MoscowIcon from '../icons/kremlin.png';
 import CameraIcon from '../icons/camera.png';
 import { getIcon } from './Services';
 
+import { FormattedMessage } from 'react-intl';
 export const Milestones = (authorId) => {
     return(
-        <VerticalTimeline
-        lineColor={'red'}
-        >
+      <div className='card'>
+        <div className='gallery-title card-header w-100 '>
+            <h3 className='card-title display-3 text-center'>
+            <FormattedMessage id='timelineTitle'></FormattedMessage>
+           </h3>
+        </div>
+        <VerticalTimeline lineColor={'red'}>
           <VerticalTimelineElement
             className="vertical-timeline-element--legacy"
             date="1961 - 1967"
@@ -109,5 +114,7 @@ export const Milestones = (authorId) => {
             icon={getIcon(WorkIcon)}
           />
         </VerticalTimeline>
+      </div>
+       
     );
 }

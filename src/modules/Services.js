@@ -5,6 +5,8 @@ import TarichMongolTail from '../resources/gallery/Tarich_mongol.jpg';
 import TarichBylatBatyr from '../resources/gallery/Tarich_BulatBatyr.jpg';
 import TarichFlyers from '../resources/gallery/Tarich_Flyers.jpg';
 import KinoBack from '../resources/gallery/Kino_looper.jpg';
+import GalerryTitleImage from '../resources/gallery/title-gallery.jpg';
+import MapMarker from '../icons/map_marker.png';
 
 const Tarich_FIlm_Url = 'https://www.youtube.com/embed/ZAYhyhsvXdY';
 const DEFAULT_ICON_SIZE = 40;
@@ -27,6 +29,30 @@ export const getTitleImage = (authorId, imageSize = {width: DEFAULT_IMAGE_WIDTH,
     )
 }  
 
+export const getGalleryTitleImageRef = () => {
+  return GalerryTitleImage;
+} 
+export const getMapMarkerRef = (authorId) => {
+  return MapMarker;
+}
+
+const arrMarkersPos = [
+  [ [59.82, 30.36], //Krivoe zerkalo ->
+    [53.89, 27.52],  //museum of BelKino
+    [53.90, 27.54]   //BelarusFilm
+  ],
+  [ [59.82, 30.36], //Krivoe zerkalo ->
+    [53.89, 27.52],  //museum of BelKino
+    [53.90, 27.54]   //BelarusFilm
+  ],
+  [ [59.82, 30.36], //Krivoe zerkalo ->
+    [53.89, 27.52],  //museum of BelKino
+    [53.90, 27.54]   //BelarusFilm
+  ]
+];
+export const getMarkerArrPos = (authorId) => {
+    return arrMarkersPos[authorId];
+}
 export const getAuthorUrl =  (authorId) => {
   switch(authorId){
     case 0:

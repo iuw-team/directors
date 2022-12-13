@@ -1,6 +1,7 @@
 .common-info-contatiner {
     display: flex;
     justify-content: center;
+    margin-bottom: 3%;
   }
   .common-info {
     table-layout: auto;

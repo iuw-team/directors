@@ -1,23 +1,20 @@
-import React from 'react';
 import "react-image-gallery/styles/css/image-gallery.css";
 import ReactImageGallery from 'react-image-gallery';
-import { MapContainer, TileLayer } from 'react-leaflet';
-import {getAuthorUrl, getCinemaThumbnail, getImageBatch} from './Services';
+import {getAuthorUrl, getCinemaThumbnail, getGalleryTitleImageRef, getImageBatch} from './Services';
 import {FormattedMessage, useIntl} from 'react-intl';
-import { getElementError } from '@testing-library/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 const PREFIX_URL = 'https://raw.githubusercontent.com/xiaolin/react-image-gallery/master/static/';
 
 const DEFAULT_SLIDE_DURATION = 350;
 const DEFAULT_SLIDE_INTERVAL = 2000;
 
-let updateVideoMode;
 class GalleryState {
     constructor(authorId){
-        this.state = {
+          this.state ={
             showIndex: false,
             showBullets: false,
-            infinite: true,
+            infinite: false,
             showThumbnails: true,
             showFullscreenButton: true,
             showGalleryFullscreenButton: true,
@@ -33,102 +30,18 @@ class GalleryState {
             useWindowKeyDown: true,
           };
     }
-    _onSlide(index) {
-        this._resetVideo();
-        console.debug('slid to index', index);
-      }
-
-
-    _toggleShowVideo(url) {
-        let showVideo = !this.state.showVideo;
-        this.state.showVideo = showVideo;
-       
-        if(showVideo){
-            this.state.infinite = false;
-        }
-
-        if (!showVideo) {
-          if (this.state.showPlayButton) {
-            this.showGalleryFullscreenButton = false;
-          }
-    
-          if (this.state.showFullscreenButton) {
-            this.showGalleryFullscreenButton = false;
-          }
-        }
-      }
-    _renderVideo(item) {
-     //   this.state.showVideo = true;
-        return (
-          <div>
-            {
-              this.state.showVideo ?
-                <div className='video-wrapper'>
-                    <a
-                      className='close-video'
-                      onClick={this._toggleShowVideo.bind(this, item.embedUrl)}
-                    >
-                    </a>
-                    <iframe
-                      width='600'
-                      height='800'
-                      src={item.embedUrl}
-                      frameBorder='0'
-                      allowFullScreen
-                    >
-                    </iframe>
-                </div>
-              :
-                <a onClick={this._toggleShowVideo.bind(this, item.embedUrl)}>
-                  <div className='play-button'></div>
-                  <img className='image-gallery-image' src={item.original} />
-                  {
-                    item.description &&
-                      <span
-                        className='image-gallery-description'
-                        style={{right: '0', left: 'initial'}}
-                      >
-                        {item.description}
-                      </span>
-                  }
-                </a>
-            }
-          </div>
-        );     
-    };
-    _resetVideo() {
-        this.showVideo = false;
-    
-        if (this.state.showPlayButton) {
-            this.showGalleryPlayButton = true;
-        }
-    
-        if (this.state.showFullscreenButton) {
-            this.showGalleryFullscreenButton = true;
-        }
-      }
-    
-    _getVideoPage(authorId, messages) {
-
-        let item = {
-            thumbnail: getCinemaThumbnail(),
-            original: getCinemaThumbnail(),
-            embedUrl: getAuthorUrl(authorId),
-            description: messages['workSample'],
-            renderItem: this._renderVideo.bind(this)
-            }
-            return item;
-    }
+   
 }
 
 
 const Gallery = ({authorId}) => {
     let galleryInfo = new GalleryState(authorId);
-
     const intl = useIntl();
     const arrImgInfo = intl.messages['gallery'][authorId];
     const arrImages = getImageBatch(authorId);
     const arrImgItems = new Array();
+    const [videoMode, setVideoMode] = useState(true);
+
     arrImages.forEach( (imgSrc, index) => {
         arrImgItems.push(
             {
@@ -139,26 +52,105 @@ const Gallery = ({authorId}) => {
             
         );
     });
-    const getVideoPage = galleryInfo._getVideoPage.bind(galleryInfo, authorId, intl.messages);
-    arrImgItems.push(
-            getVideoPage(authorId)
-    )
+    const onSlide = (index) =>{
+      resetVideo();
+      console.debug('slid to index', index);
+    }
+
+  const toggleShowVideo = (url) => {
+      const showVideo = !videoMode;
+      //setVideoMode(showVideo);
+      if(showVideo){
+          galleryInfo.state.infinite = false;
+      }
+
+      if (!showVideo) {
+        if (galleryInfo.state.showPlayButton) {
+          galleryInfo.state.showGalleryFullscreenButton = false;
+        }
+  
+        if (galleryInfo.state.showFullscreenButton) {
+          galleryInfo.state.showGalleryFullscreenButton = false;
+        }
+      }
+    }
+
+  const renderVideo = (item)  => {
+      return (
+        <div>
+          {
+            videoMode ?
+              <div className='video-wrapper'>
+                  <a
+                    className='close-video'
+                    onClick={toggleShowVideo(item.embedUrl)}
+                  >
+                  </a>
+                  <iframe
+                    width='600'
+                    height='850'
+                    src={item.embedUrl}
+                    frameBorder='0'
+                    allowFullScreen
+                  >
+                  </iframe>
+              </div>
+            :
+              <a onClick={toggleShowVideo(item.embedUrl)}>
+                <div className='play-button'></div>
+                <img className='image-gallery-image' src={item.original} />
+                {
+                  item.description &&
+                    <span
+                      className='image-gallery-description'
+                      style={{right: '0', left: 'initial'}}
+                    >
+                      {item.description}
+                    </span>
+                }
+              </a>
+          }
+        </div>
+      );     
+  };
+  const resetVideo = () => {
+    //  setVideoMode(false);
+      if (galleryInfo.state.showPlayButton) {
+          galleryInfo.state.showGalleryPlayButton = true;
+      }
+  
+      if (galleryInfo.state.showFullscreenButton) {
+          galleryInfo.state.showGalleryFullscreenButton = true;
+      }
+    }
+  
+   const getVideoPage = (authorId) => {
+      let item = {
+          thumbnail: getCinemaThumbnail(),
+          original: getCinemaThumbnail(),
+          embedUrl: getAuthorUrl(authorId),
+          description: intl.messages['workSample'],
+          renderItem: renderVideo,
+          }
+          return item;
+  }
+    arrImgItems.push(getVideoPage(authorId))
     return (
-        <div className= 'gallery'>
-      <MapContainer center={[40.505, -100.09]} zoom={13}>
-          <TileLayer attribution='&copy; 
-          <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-        </MapContainer>
-        
-        <FormattedMessage id='galleryTitle'></FormattedMessage>
+        <div className= 'gallery card'>
+          <div className='gallery-title card-header w-100 '>
+            <h3 className='card-title display-3 text-center'>
+            <FormattedMessage id='galleryTitle'></FormattedMessage>
+           </h3>
+          </div>
+          
+        <section className='gallery-content card-body w-70'>
         <ReactImageGallery
           items={arrImgItems}
           useWindowKeyDown={true}
           slideDuration={parseInt(DEFAULT_SLIDE_DURATION)}
           slideInterval={parseInt(DEFAULT_SLIDE_INTERVAL)}
           slideOnThumbnailOver={false}
-          onSlide={galleryInfo._onSlide.bind(galleryInfo)}
+          onSlide={onSlide}
           infinite={galleryInfo.state.infinite}
           showBullets={galleryInfo.state.showBullets}
           showFullscreenButton={galleryInfo.state.showFullscreenButton && galleryInfo.state.showGalleryFullscreenButton}
@@ -169,6 +161,7 @@ const Gallery = ({authorId}) => {
           isRTL={galleryInfo.state.isRTL}
           thumbnailPosition={galleryInfo.state.thumbnailPosition}
         />
+        </section>
         </div>
     );
 }

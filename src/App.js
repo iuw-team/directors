@@ -1,5 +1,7 @@
 //import externla source file
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import './App.css';
 import {Header} from './modules/Header'
@@ -12,7 +14,8 @@ import {useState} from 'react'
 import { Milestones } from './modules/Milestones';
 import { Description } from './modules/Description';
 import { Gallery } from './modules/TestGallery';
-
+import { MapPoints } from './modules/Mapway';
+import {Footer} from './modules/Footer';
 
 function App() {
 const locale = LOCALES.ENGLISH;
@@ -27,7 +30,8 @@ const handleFunc = ({ target: {value} }) =>{
     <Description authorId = {0}></Description>
     <Milestones></Milestones>
     <Gallery authorId= {0}></Gallery>
-
+    <MapPoints authorId= {0}></MapPoints>
+    <Footer></Footer>
     </IntlProvider>
   );
 }

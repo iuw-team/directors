@@ -6,6 +6,8 @@ export const messages = {
     [LOCALES.ENGLISH]:{
         langOption: "Chosen language",
         galleryTitle: 'The most famous works of the author',
+        timelineTitle: 'Common bibliographic information',
+        mapTitle:  'The map of activities',
         workSample: "The sample of author's work",
         authorName: ['Yuri Viktorovich Tarich', 'Dmitry Vladimirovich Iosifov', 'Vladimir Vasilievich Pertsov', 'Yuri Alexandrovich Elkhov', 'Margarita Naimovna Kasymova'],
         birthDateTitle: 'Date of birth',
@@ -21,6 +23,11 @@ export const messages = {
             ['Cat Killer Silver', 'Forgive us, stepmother Russia', 'Anomaly', 'Anastasia Slutskaya'], //fourth author
 			['Summer 1943', 'Weavers', 'And happiness is near', 'Today and forever', 'Where the dinosaur\'s trail led'] // fifth author
         ],
+        mapInfo: [
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+        ],
     },
     [LOCALES.RUSSIAN]:{
         langOption: "Выбранный язык",
@@ -29,6 +36,8 @@ export const messages = {
         birthDate: ['24 января 1885', '22 октября 1965', '25 апреля 1936', '7 декабря 1939', '10 апреля 1938'],
         deathDateTitle: 'Дата смерти',
         galleryTitle: 'Наиболее известные работы автора',
+        timelineTitle: 'Основные библографические сведения',
+        mapTitle:  'Карта активностей',
         workSample: 'Пример произведения автора',
         deathDate: ['21 февраля 1967', '-', '25 ноября 2018', '-', '-'],
         profTitle: 'Профессия',
@@ -40,5 +49,10 @@ export const messages = {
             ['Кошкодав Сильвер', 'Прости нас, мачеха Россия', 'Аномалия', 'Анастасия Слуцкая'], //fourth author
 			['Лето 1943 года', 'Ткачихи', 'А счастье рядом', 'Сегодня и всегда', 'Куда вёл след динозавра'], // fifth author
         ],
+        mapInfo: [
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+            ['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+        ]
     }
 }
