@@ -44,11 +44,10 @@ import AwardIcon from '../icons/award.svg'
 import BirthIcon from '../icons/baby-carriage.svg';
 import WeaponIcon from '../icons/weapon.svg';
 import MonumentIcon from '../icons/monument.svg'
-import { messages } from '../locales/messages';
 import TheaterIcon from '../icons/masks-theater.svg';
 import MoscowIcon from '../icons/kremlin.png';
 import CameraIcon from '../icons/camera.png';
-
+import AppLogo from '../logo.svg';
 
 export const IconType = Object.freeze({
     Work: Symbol('Work'),
@@ -60,7 +59,8 @@ export const IconType = Object.freeze({
     Monument: Symbol('Monument'),
     Award: Symbol('Award'),
     Birth: Symbol('Birth'),
-    Weapon: Symbol('Weapon')
+    Weapon: Symbol('Weapon'),
+    AppLogo: Symbol('TitleLogo'), 
 });
 const getIconRef = (iconType) => {
   switch(iconType) {
@@ -74,6 +74,7 @@ const getIconRef = (iconType) => {
     case IconType.Theater: return TheaterIcon;
     case IconType.Weapon: return WeaponIcon;
     case IconType.Work: return WorkIcon;
+    case IconType.AppLogo: return AppLogo;
     return '';
   }
 }
@@ -83,12 +84,18 @@ const Nikita_Film_Url = "https://www.youtube.com/embed/rjeopto7LNw";
 const Margo_Film_Url =  "https://www.youtube.com/embed/WK4f9Ie7gVM";
 const Elhov_Film_Url =  "https://www.youtube.com/embed/DUXh78KLAKg";
 
-const DEFAULT_ICON_SIZE = 40;
-export const getIcon = (iconType, iconSize = DEFAULT_ICON_SIZE) => {
+export const DEFAULT_ICON_SIZE = {width: 40, height: 40};
+const DEFAULT_ICON_PROPS = {
+    size: DEFAULT_ICON_SIZE,
+    class : 'small-icon',
+    alt: 'Default icon'
+}
+export const getIcon = (iconType, iconProps = DEFAULT_ICON_PROPS) => {
     return(
       <img src = {getIconRef(iconType)} 
-      style={{ width: iconSize, height: iconSize}} 
-      alt="Unknown icon"/>
+      style={iconProps.size} 
+      className={iconProps.class}
+      alt={iconProps.alt}/>
     )
   }
 

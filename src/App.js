@@ -19,10 +19,16 @@ import {Footer} from './modules/Footer';
 
 function App() {
 const locale = LOCALES.ENGLISH;
+const arrLocales = [LOCALES.ENGLISH, LOCALES.RUSSIAN]
+const convertToLocale = (index) => {
+    return arrLocales[index];
+}
 const [currLocale, setCurrLocale] = useState(locale);
 
-const handleFunc = ({ target: {value} }) =>{
-      setCurrLocale(value);
+const handleFunc = ({index}) =>{
+      setCurrLocale(
+        convertToLocale(index)
+      );
 };
   return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
