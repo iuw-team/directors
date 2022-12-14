@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/directors/static/css/main.0c5cd2f2.css",
-    "main.js": "/directors/static/js/main.8cac3694.js",
+    "main.js": "/directors/static/js/main.aa3ffb72.js",
     "static/js/787.a0b1cdd3.chunk.js": "/directors/static/js/787.a0b1cdd3.chunk.js",
     "static/media/Dmitry_Ekaterina.jpg": "/directors/static/media/Dmitry_Ekaterina.31aba4dffeba9d7e50bf.jpg",
     "static/media/Dmitry_Leto_Volkov.png": "/directors/static/media/Dmitry_Leto_Volkov.099ceb83f15d4ccd24d3.png",
@@ -27,6 +27,7 @@
     "static/media/Nikita_Squadron_Of_Flying_Hussars.jpg": "/directors/static/media/Nikita_Squadron_Of_Flying_Hussars.32828e664ce29bf46850.jpg",
     "static/media/Margarita_Kuda_Vel_sled_dinozavra.jpg": "/directors/static/media/Margarita_Kuda_Vel_sled_dinozavra.295973e410169d2cc986.jpg",
     "static/media/Nikita_Menay_Sobaku.jpg": "/directors/static/media/Nikita_Menay_Sobaku.fb22ce021c1764a1a241.jpg",
+    "static/media/EnglishLang.png": "/directors/static/media/EnglishLang.9851be0cc0974bf2496a.png",
     "static/media/Margarita_a_schastye_ryadom.jpg": "/directors/static/media/Margarita_a_schastye_ryadom.8e6ef314db53a69e65a9.jpg",
     "static/media/logo.svg": "/directors/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "static/media/masks-theater.svg": "/directors/static/media/masks-theater.4c988cc88b38aab0efd54765d1dcd115.svg",
@@ -38,11 +39,11 @@
     "index.html": "/directors/index.html",
     "static/media/monument.svg": "/directors/static/media/monument.e037cf4d978dba041d89ecf7d71dc354.svg",
     "main.0c5cd2f2.css.map": "/directors/static/css/main.0c5cd2f2.css.map",
-    "main.8cac3694.js.map": "/directors/static/js/main.8cac3694.js.map",
+    "main.aa3ffb72.js.map": "/directors/static/js/main.aa3ffb72.js.map",
     "787.a0b1cdd3.chunk.js.map": "/directors/static/js/787.a0b1cdd3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c5cd2f2.css",
-    "static/js/main.8cac3694.js"
+    "static/js/main.aa3ffb72.js"
   ]
 }
