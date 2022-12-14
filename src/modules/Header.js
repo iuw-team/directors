@@ -1,46 +1,59 @@
 import  { FormattedMessage, FormattedNumber, FormattedPlural} from 'react-intl';
-import React, { useEffect, useRef} from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef} from 'react';
+import {useIntl} from 'react-intl';
 import { LOCALES } from '../locales/locales';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { DEFAULT_ICON_SIZE, getIcon, IconType } from './Services';
+import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, setArticleId } from './Services';
+import { findAllInRenderedTree } from 'react-dom/test-utils';
 const languages = [
-    {native: 'Русский', code: LOCALES.RUSSIAN},
-    {native: 'English', code: LOCALES.ENGLISH}];
+    {native: 'English', code: LOCALES.ENGLISH},
+    {native: 'Русский', code: LOCALES.RUSSIAN}];
 
 const DEFAULT_LOGO_SIZE = DEFAULT_ICON_SIZE;
 
-export const Header = ({ currentLocale, handleFunc }) => {
-  const handle = (event, index) => {
-    console.log("Hello world");
+export const Header = ({ currentLocale, handleFunc, handleRender}) => {
+  const getLangNative = () => {
+      let currLang = languages.find( (value) => value.code === currentLocale)
+      if(!currLang)
+        currLang.native = LOCALES.ENGLISH;
+      return currLang.native
   }
-    const buttonRefs = useRef(new Array());
-    const addToRefs = (e) => {
-      if(e && !buttonRefs.current.includes(e)){
-          buttonRefs.current.push(e);
-      }
-    }
-    useEffect( () => {
-      const arrHandleProc = new Array();
-
-      buttonRefs.current.forEach( (element, index) => { 
-          arrHandleProc.push( (event) =>{
-              handleFunc(index)
-          });
-          element.addEventListener('click', arrHandleProc[index]);
-        });
-        return () => {
-            buttonRefs.current.forEach((element, index) => {
-                element.removeEventListener('click', arrHandleProc[index]);
-            })
+    const intl = useIntl();
+    const searchRef = useRef(null);
+    const arrDirectors = intl.messages['authorName'];
+    const [searchTips, setSearchTips] = useState([]);
+    const handleSearhPage = () => {
+        let fullName = searchRef.current.value;
+        let authorId = arrDirectors.indexOf(fullName);
+        if(authorId == -1){
+          alert("No such author");
+          return;
         }
-    });
+        setArticleId(authorId);
+        handleRender();
+    }
+    const findSimilar = (inputName) => {
+        return arrDirectors.filter(fullName => fullName.includes(inputName));
+    }
+    const handleTintClick = useCallback((value) => {
+      searchRef.current.value = value;
+    }, [searchRef]);
+
+    const handleInputChange = () => {
+      const inputVal = searchRef.current.value;
+      if(inputVal.length < 1)
+        setSearchTips([])
+      else
+        setSearchTips(findSimilar(inputVal));
+    }
     return (
       <div className="header">
               <Navbar bg="light" expand="lg">
-      <Container>
+        <Container>
         <Navbar.Brand href="#home">
             {getIcon(IconType.AppLogo,
                 {
@@ -51,48 +64,64 @@ export const Header = ({ currentLocale, handleFunc }) => {
               )}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-          <Nav.Link href="#home">
+        <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
+          <Nav className="">
+          <Nav.Link href="#">
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="#home">
+            <Nav.Link href="#team">
               <FormattedMessage id='teamTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="#link">
+            <Nav.Link href="#directors">
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
-            <NavDropdown title={currentLocale} id="basic-nav-dropdown">
+          </Nav>
+          <Form className="d-flex ms-auto">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="mr-auto"
+              aria-label="Search"
+              ref={searchRef}
+              onChange={handleInputChange}
+            />
+            <Button variant="outline-success" onClick={handleSearhPage}>Search</Button>
+          </Form>
+          <Nav.Item className='d-flex align-items-center ms-3'>
+          <NavDropdown 
+            title={getLangNative()}
+            id="basic-nav-dropdown"
+            onSelect={handleFunc}
+            className='me-2'
+            >
             { languages.map( ({native, code}) => (
-               <NavDropdown.Item onClick={handleFunc}>
+               <NavDropdown.Item key={code} eventKey={code}>
                 {native}
-                </NavDropdown.Item>
+                </NavDropdown.Item> 
+               
                 ))
             }
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
             </NavDropdown>
-          </Nav>
+            <Nav.Item className='mx-auto'>
+            {getLangIcon(currentLocale)}
+            </Nav.Item> 
+          </Nav.Item>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-        <div className="lang-switcher">
-          <span><FormattedMessage id='langOption'></FormattedMessage></span>
-          {/* <select onChange={handleFunc} value={currentLocale}>{
-              languages.map( ({native, code}) => (
-                <option key={code} value = {code}>{native}</option>
-                ))
-            }</select> */}
-        </div>
-        <div className='time-info'>
-        </div>
+    <>
+      {searchTips.length > 0 && (
+        <ul>
+          {searchTips.map( (fullName, index) => (
+            <li
+            onClick={() => handleTintClick(fullName)}
+            key={index}>
+            {fullName}
+          </li>
+          ))}
+        </ul>
+      )}
+    </>
       </div>
     )
   }

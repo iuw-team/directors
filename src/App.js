@@ -16,27 +16,27 @@ import { Description } from './modules/Description';
 import { Gallery } from './modules/TestGallery';
 import { MapPoints } from './modules/Mapway';
 import {Footer} from './modules/Footer';
+import { getArticleId } from './modules/Services';
 
 function App() {
 const locale = LOCALES.ENGLISH;
 const arrLocales = [LOCALES.ENGLISH, LOCALES.RUSSIAN]
-const convertToLocale = (index) => {
-    return arrLocales[index];
-}
+const [authorId, setAuthorId] = useState(getArticleId());
 const [currLocale, setCurrLocale] = useState(locale);
 
-const handleFunc = ({index}) =>{
-      setCurrLocale(
-        convertToLocale(index)
-      );
+const handleFunc = (value) =>{
+    setCurrLocale(value);
 };
+const handleRender = () => {
+    setAuthorId(getArticleId());
+}
   return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
-    <Header currentLocale={currLocale} handleFunc={handleFunc}></Header>
-    <Description authorId = {2}></Description>
-    <Milestones authorId={0}></Milestones>
-    <Gallery authorId= {4}></Gallery>
-    <MapPoints authorId= {0}></MapPoints>
+    <Header currentLocale={currLocale} handleFunc={handleFunc} handleRender={handleRender}></Header>
+    <Description authorId = {authorId}></Description>
+    <Milestones authorId={authorId}></Milestones>
+    <Gallery authorId= {authorId}></Gallery>
+    <MapPoints authorId= {authorId}></MapPoints>
     <Footer></Footer>
     </IntlProvider>
   );

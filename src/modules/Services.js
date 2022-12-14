@@ -36,7 +36,6 @@ import KinoBack from '../resources/gallery/Kino_looper.jpg';
 import GalerryTitleImage from '../resources/gallery/title-gallery.jpg';
 import MapMarker from '../icons/map_marker.png';
 
-
 import WorkIcon from '../icons/student.svg'
 import StudentIcon from '../icons/student.svg'
 import CommitmentIcon from '../icons/handshake.svg';
@@ -47,8 +46,11 @@ import MonumentIcon from '../icons/monument.svg'
 import TheaterIcon from '../icons/masks-theater.svg';
 import MoscowIcon from '../icons/kremlin.png';
 import CameraIcon from '../icons/camera.png';
+import RussiaIcon from '../icons/RussiaLang.png';
+import EnglandIcon from '../icons/EnglishLang.png';
 import AppLogo from '../logo.svg';
 
+import { LOCALES } from '../locales/locales';
 export const IconType = Object.freeze({
     Work: Symbol('Work'),
     Student: Symbol('Student'),
@@ -61,6 +63,8 @@ export const IconType = Object.freeze({
     Birth: Symbol('Birth'),
     Weapon: Symbol('Weapon'),
     AppLogo: Symbol('TitleLogo'), 
+    Russia: Symbol('Russia'),
+    England: Symbol('English'),
 });
 const getIconRef = (iconType) => {
   switch(iconType) {
@@ -74,6 +78,8 @@ const getIconRef = (iconType) => {
     case IconType.Theater: return TheaterIcon;
     case IconType.Weapon: return WeaponIcon;
     case IconType.Work: return WorkIcon;
+    case IconType.Russia: return RussiaIcon;
+    case IconType.England: return EnglandIcon;
     case IconType.AppLogo: return AppLogo;
     return '';
   }
@@ -90,6 +96,15 @@ const DEFAULT_ICON_PROPS = {
     class : 'small-icon',
     alt: 'Default icon'
 }
+export const getLangIcon = (locale) => {
+ if(locale == LOCALES.ENGLISH)
+    return getIcon(IconType.England);
+
+ if(locale == LOCALES.RUSSIAN)
+    return getIcon(IconType.Russia);
+
+    return getIcon(IconType.England);
+}
 export const getIcon = (iconType, iconProps = DEFAULT_ICON_PROPS) => {
     return(
       <img src = {getIconRef(iconType)} 
@@ -98,6 +113,12 @@ export const getIcon = (iconType, iconProps = DEFAULT_ICON_PROPS) => {
       alt={iconProps.alt}/>
     )
   }
+let ArticleId = 0;
+export const setArticleId = (id) => {
+  ArticleId = id;
+}
+export const getArticleId = () => { 
+  return ArticleId};
 
 const DEFAULT_IMAGE_WIDTH = 200;
 const DEFAULT_IMAGE_HEIGHT = 300;
