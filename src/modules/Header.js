@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, setArticleId } from './Services';
+import { Tiplist } from './Tooltip';
 import { findAllInRenderedTree } from 'react-dom/test-utils';
 const languages = [
     {native: 'English', code: LOCALES.ENGLISH},
@@ -34,10 +35,15 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
           return;
         }
         setArticleId(authorId);
+        setSearchTips([]);
+        searchRef.current.value = '';
         handleRender();
     }
     const findSimilar = (inputName) => {
-        return arrDirectors.filter(fullName => fullName.includes(inputName));
+        let upperName = inputName.toUpperCase();
+        return arrDirectors.filter((fullName) =>{
+          return (fullName.toUpperCase().includes(upperName))
+        });
     }
     const handleTintClick = useCallback((value) => {
       searchRef.current.value = value;
@@ -109,19 +115,9 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <>
-      {searchTips.length > 0 && (
-        <ul>
-          {searchTips.map( (fullName, index) => (
-            <li
-            onClick={() => handleTintClick(fullName)}
-            key={index}>
-            {fullName}
-          </li>
-          ))}
-        </ul>
-      )}
-    </>
+    { (searchTips.length > 0) &&
+     (<Tiplist parent={searchRef.current} items={searchTips} handleFunc={handleTintClick}></Tiplist> )}
+    
       </div>
     )
   }
