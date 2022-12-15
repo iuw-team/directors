@@ -16,9 +16,9 @@ import { Description } from './modules/Description';
 import { Gallery } from './modules/TestGallery';
 import { MapPoints } from './modules/Mapway';
 import {Footer} from './modules/Footer';
-import { getArticleId } from './modules/Services';
+import { getArticleId, getArticleCnt} from './modules/Services';
 import { TitlePerson } from './modules/titlePage/titlePerson';
-import { Container } from 'react-bootstrap';
+import { Container, Card, Col, Row } from 'react-bootstrap';
 import { DirectoryGallery } from './modules/titlePage/dirGallery';
 
 import { PageType } from './modules/Services';
@@ -40,15 +40,40 @@ const handleFunc = (value) =>{
 useEffect(() => {
   window.scrollTo(0,0);
 })
+const dayAuthorId = (Math.floor(Math.random() * 10)) % getArticleCnt();
   return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleFunc}  handlePage={handleChangePage}></Header>
     {pageType == PageType.Main && (
       <Container>
-        <Container className='d-flex justify-content-center'>
-        <TitlePerson authorId={0} handlePage={handleChangePage}></TitlePerson>
-        </Container>
-          <TeamWorkers></TeamWorkers>
+        <Card className="text-center">
+          <Card.Title>
+            <Card.Header className='display-4'>
+              <FormattedMessage id='about_us'/>
+            </Card.Header>
+          </Card.Title>
+          <Card.Body className='display-5'>
+          <blockquote className="blockquote mb-0">
+          <p>
+            {' '}<FormattedMessage id='about_us_info'/>{' '}
+          </p>
+          <footer className="blockquote-footer">
+            <FormattedMessage id='about_us_source'/>
+          </footer>
+        </blockquote>
+          </Card.Body>
+        </Card>
+        <Card className='d-flex justify-content-center'>
+          <Card.Title className='text-center'>
+            <Card.Header className='display-4'>
+              <FormattedMessage id='dayAuthorTitle'/>
+            </Card.Header>
+            <Card.Body className='d-flex justify-content-center'>
+                <TitlePerson authorId={dayAuthorId} handlePage={handleChangePage}></TitlePerson>
+            </Card.Body>
+          </Card.Title>
+        </Card>
+        <TeamWorkers></TeamWorkers>
       </Container>
       
     )}

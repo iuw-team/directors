@@ -92,8 +92,11 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
               aria-label="Search"
               ref={searchRef}
               onChange={handleInputChange}
+
             />
-            <Button variant="outline-success" href="#articles"onClick={handleSearhPage}>Search</Button>
+            <Button variant="outline-success" href="#articles"onClick={handleSearhPage}>
+             <FormattedMessage id='searchButton'></FormattedMessage>
+            </Button>
           </Form>
           <Nav.Item className='d-flex align-items-center ms-3'>
           <NavDropdown 

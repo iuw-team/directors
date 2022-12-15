@@ -50,6 +50,10 @@ import RussiaIcon from '../icons/RussiaLang.png';
 import EnglandIcon from '../icons/EnglishLang.png';
 import AppLogo from '../logo.svg';
 
+import AuthorNikitaImage from '../resources/authors/nikita.png';
+import AuthorPavelImage from '../resources/authors/pavel.jpg';
+import AuthorAndreyImage from '../resources/authors/andrey.png';
+
 import { LOCALES } from '../locales/locales';
 export const IconType = Object.freeze({
     Work: Symbol('Work'),
@@ -139,8 +143,12 @@ export const getTitleImage = (authorId, imageSize = {width: DEFAULT_IMAGE_WIDTH,
        style={{width: imageSize.width, height: imageSize.height}}
        alt="Unknown author"/>
     )
-}  
+} 
 
+const arrTeamImg = [AuthorPavelImage, AuthorNikitaImage, AuthorAndreyImage]
+export const getTeamImgRef = () => {
+  return arrTeamImg;
+}
 export const getGalleryTitleImageRef = () => {
   return GalerryTitleImage;
 } 

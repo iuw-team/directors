@@ -2,8 +2,8 @@ import './description-small.css';
 
 import  { useIntl, FormattedMessage, FormattedNumber, FormattedPlural} from 'react-intl';
 import React from 'react';
-import { Table, Card, ButtonGroup, Button, Container} from 'react-bootstrap';
-import { getArticleCnt, getArticleId, getTitleImage, PageType, setArticleId } from './Services';
+import { Table, Card, ButtonGroup, Button, Container, Col, Row} from 'react-bootstrap';
+import { getArticleCnt, getArticleId, getTitleImageRef, getTitleImage, PageType, setArticleId } from './Services';
 import { FormatError } from 'intl-messageformat';
 import { getActiveElement } from '@testing-library/user-event/dist/utils';
 
@@ -28,8 +28,12 @@ export const Description = ({authorId, handlePage}) => {
     return(
         <Container>
                 <ButtonGroup className="switch-button__container" >
-                    <Button className="switch-button__button" size='lg' onClick={handlePrevPage}>prev</Button>
-                    <Button className="switch-button__button" size='lg' onClick={handleNextPage}>next</Button>
+                    <Button className="switch-button__button" size='lg' onClick={handlePrevPage}>
+                        <FormattedMessage id='prevButton'></FormattedMessage>
+                    </Button>
+                    <Button className="switch-button__button" size='lg' onClick={handleNextPage}>
+                        <FormattedMessage id='nextButton'></FormattedMessage>
+                    </Button>
                 </ButtonGroup>
                 <div className='common-info-contatiner d-flex'>
                 <Card>
@@ -40,7 +44,10 @@ export const Description = ({authorId, handlePage}) => {
                       <th className="common-info__title" colSpan="2">{arrAuthorName[authorId]}</th>
                     </tr>
                     <tr>
-                        <td className="common-info__title-image" colSpan='2'>{getTitleImage(authorId)}</td>
+                        <td colSpan="2">
+                            <Card.Img className='me-auto'src={getTitleImageRef(authorId)}></Card.Img>
+                        </td>
+                        
                     </tr>
                     <tr>
                         <th className="common-info__text common-info__text-title" scope="row">

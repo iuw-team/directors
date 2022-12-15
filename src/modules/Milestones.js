@@ -27,7 +27,7 @@ export const Milestones = ({authorId}) => {
               <VerticalTimelineElement
               className="vertical-timeline-element"
               date={item.date}
-              contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff'}}
+              contentStyle={{ background: 'rgb(33, 150, 243)', color: '#504560'}}
               contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
               iconStyle={{ background: arrNodeColor[getNodeIndex()], color: 'rgb(30, 52, 166)'}}
               icon={getIcon(item.icon)}
