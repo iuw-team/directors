@@ -2,9 +2,9 @@ import './description-small.css';
 
 import  { useIntl, FormattedMessage, FormattedNumber, FormattedPlural} from 'react-intl';
 import React from 'react';
-import { LOCALES } from '../locales/locales';
-import {messages} from '../locales/messages';
+import { Table, Card } from 'react-bootstrap';
 import { getTitleImage } from './Services';
+import { FormatError } from 'intl-messageformat';
 
 export const Description = ({authorId}) => {
     const intl = useIntl();
@@ -14,13 +14,15 @@ export const Description = ({authorId}) => {
     const arrProfType   = intl.messages['profType'];
     return(
         <div className='common-info-contatiner'>
-            <table className='common-info'>
-                <tbody>
+                <Card>
+                    <Card.Body>
+                        <Table className='common-info' striped='columns'>
+                    <tbody>
                     <tr>
-                      <th className="common-info__title" colspan="2">{arrAuthorName[authorId]}</th>
+                      <th className="common-info__title" colSpan="2">{arrAuthorName[authorId]}</th>
                     </tr>
                     <tr>
-                        <td className="common-info__title-image" colspan='2'>{getTitleImage(authorId)}</td>
+                        <td className="common-info__title-image" colSpan='2'>{getTitleImage(authorId)}</td>
                     </tr>
                     <tr>
                         <th className="common-info__text common-info__text-title" scope="row">
@@ -45,7 +47,10 @@ export const Description = ({authorId}) => {
                         <td className="common-info__text common-info__text-info">{arrProfType[authorId]}</td>
                     </tr>
                 </tbody>
-            </table>
-        </div>
+            </Table>
+ 
+                    </Card.Body>
+                </Card>
+               </div>
     )
 }

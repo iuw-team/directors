@@ -15,12 +15,21 @@ export const messages = {
 		timelineTitle: 'Common bibliographic information',
 		mapTitle:  'The map of activities',
 		workSample: "The sample of author's work",
+        articleAbout: 'Об авторе',
+        articlePreInfo: ['Cool guy', 'Cool guy', 'Cool guy', 'Cool guy', 'Cool guy'],
 		authorName: ['Yuri Viktorovich Tarich', 'Dmitry Vladimirovich Iosifov', 'Nikita Georghievich Khubov', 'Yuri Alexandrovich Elkhov', 'Margarita Naimovna Kasymova'],
 		birthDateTitle: 'Date of birth',
 		birthDate: ['January 24, 1885', 'October 22, 1965', 'April 25, 1936', 'December 7, 1940', 'April 10, 1938'],
 		deathDateTitle: 'Date of death',
 		deathDate: ['February 21, 1967', '-', 'November 25, 2018', '-', '-'],
-		profTitle: 'Occupation',
+        common_info: [
+            'Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'
+        ],
+        far_jump: 'Go to hell',
+        teamMembers: [{name: 'Guy', info: 'Very cool', link: 'spacex.com'}, 
+                      {name: 'Guy', info: 'Very cool', link: 'spacex.com'},
+                      {name: 'Guy', info: 'Very cool', link: 'spacex.com'}], //UPDATE!!
+        profTitle: 'Occupation',
 		profType: ['Film director, writer', 'Film director, actor', 'Film director, screenwriter, film producer, cinematographer', 'Film direction, cinematographer, screenwriter, film producer', 'Actress, film director, screenwriter'],
 		gallery: [
 			['Tale of the woods', 'The Captain\'s Daughter', 'Tsogt taij', 'Bulat-Batir', 'The Wings of a Serf'], //first author
@@ -222,13 +231,23 @@ export const messages = {
 		mainTitle: 'Главная',
 		teamTitle: 'Наша команда',
 		articlesTitle: 'Режиссёры',
+        articleAbout: 'Об авторе',
 		galleryTitle: 'Наиболее известные работы автора',
 		timelineTitle: 'Основные библиографические сведения',
 		teamInfoTitle: 'Об авторах',
 		mapTitle:  'Карта активностей',
+        articlePreInfo: ['Cool guy', 'Cool guy', 'Cool guy', 'Cool guy', 'Cool guy'], //UPDATE!!
 		workSample: 'Пример произведения автора',
 		deathDate: ['21 февраля 1967', '-', '25 ноября 2018', '-', '-'],
 		profTitle: 'Профессия',
+        common_info: [
+            'Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'
+        ], //UPDATE!!
+        far_jump: 'Перейти', //UPDATE!!
+        teamMembers: [
+        {name: 'Guy', info: 'Very cool', link: 'spacex.com'}, 
+        {name: 'Guy', info: 'Very cool', link: 'spacex.com'},
+        {name: 'Guy', info: 'Very cool', link: 'spacex.com'}], //UPDATE!!
 		profType: ['Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'],
 		gallery: [
 			['Лесная быль', 'Капитанская дочка', 'Цогт Тайж', 'Булат Батыр', 'Крылья холопа'], //first author

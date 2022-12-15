@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, setArticleId } from './Services';
+import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, PageType, setArticleId } from './Services';
 import { Tiplist } from './Tooltip';
 import { findAllInRenderedTree } from 'react-dom/test-utils';
 const languages = [
@@ -16,7 +16,7 @@ const languages = [
 
 const DEFAULT_LOGO_SIZE = DEFAULT_ICON_SIZE;
 
-export const Header = ({ currentLocale, handleFunc, handleRender}) => {
+export const Header = ({ currentLocale, handleFunc, handlePage}) => {
   const getLangNative = () => {
       let currLang = languages.find( (value) => value.code === currentLocale)
       if(!currLang)
@@ -27,6 +27,12 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
     const searchRef = useRef(null);
     const arrDirectors = intl.messages['authorName'];
     const [searchTips, setSearchTips] = useState([]);
+    const switchMain = () => {
+      handlePage(PageType.Main);
+    }
+    const switchDirectors = () => {
+      handlePage(PageType.Directors);
+    }
     const handleSearhPage = () => {
         let fullName = searchRef.current.value;
         let authorId = arrDirectors.indexOf(fullName);
@@ -35,9 +41,9 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
           return;
         }
         setArticleId(authorId);
+        handlePage(PageType.Article);
         setSearchTips([]);
         searchRef.current.value = '';
-        handleRender();
     }
     const findSimilar = (inputName) => {
         let upperName = inputName.toUpperCase();
@@ -60,7 +66,7 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
       <div className="header">
               <Navbar bg="light" expand="lg">
         <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="#home" onClick={switchMain}>
             {getIcon(IconType.AppLogo,
                 {
                   size: DEFAULT_LOGO_SIZE,
@@ -69,16 +75,12 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
                 }
               )}
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
           <Nav className="">
-          <Nav.Link href="#">
+          <Nav.Link href="#home" onClick={switchMain}>
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="#team">
-              <FormattedMessage id='teamTitle'></FormattedMessage>
-            </Nav.Link>
-            <Nav.Link href="#directors">
+            <Nav.Link href="#directors" onClick={switchDirectors}>
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
           </Nav>
@@ -91,7 +93,7 @@ export const Header = ({ currentLocale, handleFunc, handleRender}) => {
               ref={searchRef}
               onChange={handleInputChange}
             />
-            <Button variant="outline-success" onClick={handleSearhPage}>Search</Button>
+            <Button variant="outline-success" href="#articles"onClick={handleSearhPage}>Search</Button>
           </Form>
           <Nav.Item className='d-flex align-items-center ms-3'>
           <NavDropdown 

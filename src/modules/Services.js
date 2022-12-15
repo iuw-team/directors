@@ -113,6 +113,11 @@ export const getIcon = (iconType, iconProps = DEFAULT_ICON_PROPS) => {
       alt={iconProps.alt}/>
     )
   }
+export const PageType = Object.freeze({
+    Main: Symbol('MainPage'),
+    Article: Symbol('Article'),
+    Directors: Symbol('Directors')
+})
 let ArticleId = 0;
 export const setArticleId = (id) => {
   ArticleId = id;
@@ -123,9 +128,12 @@ export const getArticleId = () => {
 const DEFAULT_IMAGE_WIDTH = 200;
 const DEFAULT_IMAGE_HEIGHT = 300;
 const arrTitleImages = [TarichImage, DmitriyImage, NikitaImage, ElhovImage, MargaritaImage];
+export const getTitleImageRef = (authorId) => {
+  return arrTitleImages[authorId];
+}
 export const getTitleImage = (authorId, imageSize = {width: DEFAULT_IMAGE_WIDTH, height: DEFAULT_IMAGE_HEIGHT}) => {
     return(
-      <img src = {arrTitleImages[authorId]}
+      <img src = {getTitleImageRef(authorId)}
        style={{width: imageSize.width, height: imageSize.height}}
        alt="Unknown author"/>
     )
