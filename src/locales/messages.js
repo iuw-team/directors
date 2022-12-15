@@ -207,7 +207,7 @@ export const messages = {
 				},
 				{
 					date: '5 May 1992',
-					icon: IconType.Weapon,
+					icon: IconType.Student,
 					title: 'Moving to Minsk',
 					subtitle:'',
 					info: 'With the start of the civil war in Tajikistan, she moved to Minsk (Republic of Belarus), where she works as an editor in the film studio Belarusfilm. Has Russian citizenship.',
@@ -221,7 +221,7 @@ export const messages = {
 				},
 				{
 					date: '2010',
-					icon: IconType.Weapon,
+					icon: IconType.Student,
 					title: 'Master course for film directors',
 					subtitle:'',
 					info: 'In 2010, Kasymova attended the master course of film directors at the Faculty of Screen Arts.',
@@ -451,7 +451,7 @@ export const messages = {
 				},
 				{
 					date: '2010',
-					icon: IconType.Weapon, 
+					icon: IconType.Student, 
 					title: 'Мастер курса кинорежиссёров',
 					subtitle:'', 
 					info: 'В 2010 году Касымова мастер курса кинорежиссеров в БГАИ (Факультет экранных искусств).',
