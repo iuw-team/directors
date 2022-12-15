@@ -15,21 +15,28 @@ export const messages = {
 		timelineTitle: 'Common bibliographic information',
 		mapTitle:  'The map of activities',
 		workSample: "The sample of author's work",
-        articleAbout: 'Об авторе',
-        articlePreInfo: ['Cool guy', 'Cool guy', 'Cool guy', 'Cool guy', 'Cool guy'],
+		articleAbout: 'About the author',
+		articlePreInfo: [
+			'Yuriy Viktorovich Tarich (real name Alekseev; Belarusian Yury Viktaravich Tarych; January 12, 1885, Plotsk, Russian Empire - February 21, 1967, Moscow, USSR) — Soviet film director and screenwriter. Honored Artist of the RSFSR (1935) and the BSSR. In 1925, he made his debut as a director with productions of the films Moroka (together with E. Ivanov-Barkov) and First Lights. He worked in Leningrad, including at the film factory "Savetskaya Belarus" of the trust "Belgoskino" located there from 1928 to 1939. He is one of the founders of Belarusian cinematography. ',
+		' Dmitry Iosifov was born on October 22, 1965 in Minsk in the family of an engineer and a biologist. The older and younger brothers Andrey (b. 1963) and Nikolai (b. 1977) are now working as programmers. At the age of 9, he was noticed by the assistant director of the Belarusfilm studio and approved for the role of Pinocchio in the film The Adventures of Pinocchio, which glorified the boy (initially Dmitry auditioned for Harlequin). After the film, the offers to shoot began to come to him one after another.',
+		'Nikita Georgievich Khubov (April 25, 1936 - November 25, 2018) - Soviet and Russian film director, screenwriter and cameraman, Honored Artist of the Russian Federation (2000). He studied at the Moscow Polygraphic Institute. In 1963 he graduated from the camera department of VGIK (workshop of B. I. Volchek). He began his creative career in cinema as one of the operators of Richard Viktorov\'s film The Third Rocket, after which he was for some time a cameraman and director of documentaries in Minsk at the Belarusfilm studio, as well as on Central Television. Later, from 1972, he began working at the M. Gorky film studio, where he staged his films. Co-writer of most of his own films. ',
+		'Elkhov Yury Alexandrovich (December 7, 1940, Moscow, Russia), director, cameraman, screenwriter. Graduated from the Chimkent Polytechnic (1960) and VGIK (1970). He worked for the film studio "Kazakhfilm". Since 1971 - at the movie theater "Belarusfilm" as a cameraman, since 1988 - and as a director. Film director of feature and television films of the highest category. Cinematographer of feature and television films of the highest category. Screenwriter of feature and documentary films.',
+		'Margarita Naimovna Kasymova (Tajik: Marvorid Kosimova; born April 10, 1938, Stalinabad, Tajik SSR, now Dushanbe, Tajikistan) is a Soviet, Belarusian and Tajik film actress, film director and screenwriter. Honored Artist of the Tajik SSR (1976).'
+			],
 		authorName: ['Yuri Viktorovich Tarich', 'Dmitry Vladimirovich Iosifov', 'Nikita Georghievich Khubov', 'Yuri Alexandrovich Elkhov', 'Margarita Naimovna Kasymova'],
 		birthDateTitle: 'Date of birth',
 		birthDate: ['January 24, 1885', 'October 22, 1965', 'April 25, 1936', 'December 7, 1940', 'April 10, 1938'],
 		deathDateTitle: 'Date of death',
 		deathDate: ['February 21, 1967', '-', 'November 25, 2018', '-', '-'],
-        common_info: [
-            'Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'
-        ],
-        far_jump: 'Go to hell',
-        teamMembers: [{name: 'Guy', info: 'Very cool', link: 'spacex.com'}, 
-                      {name: 'Guy', info: 'Very cool', link: 'spacex.com'},
-                      {name: 'Guy', info: 'Very cool', link: 'spacex.com'}], //UPDATE!!
-        profTitle: 'Occupation',
+		common_info: [
+			'Film director, screenwriter', 'Film director, actor', 'Film director, screen writer, film producer, cinematographer', 'Film director, cinematographer', 'Actress, film director, screen writer'
+		],
+		far_jump: 'View',
+		teamMembers: [
+		{name: 'Shlyk Pavel', info: 'Positive traits in Pavel\'s character are reliability, kindness, tenderness, affection. Paul\'s character is harmonious. It combines intelligence, sociability and high morality. Paul also has a developed intuition. He is inquisitive. ', link: 'spacex.com'},
+		{name: 'Malyavko Nikita', info: 'Nikita is an absolute leader who doesn\'t recognize authorities and is able to lead people. He knows how to use his charm and cannot stand superiority over himself. Outwardly, the soul of the company also turned on, he may seem soft, but inside he is a hard and even heavy person.', link: 'spacex.com'},
+		{name: 'Malinovsky Andrey', info: 'Andrey, this is a person who knows how to admit mistakes and easily accepts someone else\'s opinion, because he does not like conflict situations and manifestations of aggression. Able to think philosophically, excellent listener and adviser, excellent assistant.', link: 'spacex.com'}], //UPDATE!!
+		profTitle: 'Occupation',
 		profType: ['Film director, writer', 'Film director, actor', 'Film director, screenwriter, film producer, cinematographer', 'Film direction, cinematographer, screenwriter, film producer', 'Actress, film director, screenwriter'],
 		gallery: [
 			['Tale of the woods', 'The Captain\'s Daughter', 'Tsogt taij', 'Bulat-Batir', 'The Wings of a Serf'], //first author
@@ -41,10 +48,10 @@ export const messages = {
 
 		mapInfo: [
 			['Film factory "Soviet Belarus"' , 'Museum of Belarusian cinema', 'Studio "Belarusfilm"'],
-			['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
-			['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
-			['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
-			['Кинофабрика "Савецкая Беларусь"', 'Музей белорусского кинематографа', 'Студия "Беларусфильм"'],
+			['Film Factory "Savetskaya Belarus"', 'Museum of Belarusian Cinematography', 'Studio "Belarusfilm"'],
+			['Film Factory "Savetskaya Belarus"', 'Museum of Belarusian Cinematography', 'Studio "Belarusfilm"'],
+			['Film Factory "Savetskaya Belarus"', 'Museum of Belarusian Cinematography', 'Studio "Belarusfilm"'],
+			['Film Factory "Savetskaya Belarus"', 'Museum of Belarusian Cinematography', 'Studio "Belarusfilm"'],
 		],
 		timelineInfo: [
 			[{date: 'January 24, 1885', icon: IconType.Birth, title: 'Birth', subtitle:'', info: 'Born in Polock', },
@@ -231,23 +238,28 @@ export const messages = {
 		mainTitle: 'Главная',
 		teamTitle: 'Наша команда',
 		articlesTitle: 'Режиссёры',
-        articleAbout: 'Об авторе',
+		articleAbout: 'Об авторе',
 		galleryTitle: 'Наиболее известные работы автора',
 		timelineTitle: 'Основные библиографические сведения',
 		teamInfoTitle: 'Об авторах',
 		mapTitle:  'Карта активностей',
-        articlePreInfo: ['Cool guy', 'Cool guy', 'Cool guy', 'Cool guy', 'Cool guy'], //UPDATE!!
+		articlePreInfo: ['Ю́рий Ви́кторович Та́рич (наст. фамилия Алексе́ев; белор. Юрый Віктаравіч Тарыч; 12 января 1885, Плоцк, Российская империя — 21 февраля 1967, Москва, СССР) — советский кинорежиссёр и сценарист. Заслуженный деятель искусств РСФСР (1935) и БССР. В 1925 году как режиссёр дебютировал постановками фильмов «Морока» (совместно с Е. Ивановым-Барковым) и «Первые огни». Работал в Ленинграде, в том числе и на находившейся там с 1928 по 1939 год кинофабрике «Савецкая Беларусь» треста «Белгоскино». Является одним из основоположников белорусской кинематографии. ',
+			' Дмитрий Иосифов родился 22 октября 1965 года в Минске в семье инженера и биолога. Старший и младший братья — Андрей (р. 1963) и Николай (р. 1977), сейчас работают программистами. В возрасте 9 лет был замечен ассистентом режиссёра студии «Беларусьфильм» и утверждён на роль Буратино в фильме «Приключения Буратино», которая прославила мальчика (изначально Дмитрий пробовался на Арлекина). После фильма предложения сниматься стали поступать к нему одно за другим.',
+			'Ники́та Гео́ргиевич Ху́бов (25 апреля 1936 — 25 ноября 2018) — советский и российский кинорежиссёр, сценарист и оператор, заслуженный деятель искусств Российской Федерации (2000). Учился в Московском полиграфическом институте. В 1963 году окончил операторский факультет ВГИКа (мастерская Б. И. Волчека). Свой творческий путь в кино начинал как один из операторов фильма Ричарда Викторова «Третья ракета», после чего был какое-то время оператором и режиссёром документального кино в Минске на студии «Беларусьфильм», а также на Центральном Телевидении. В дальнейшем, с 1972 года, стал работать на киностудии имени М. Горького, где и ставил свои фильмы. Соавтор сценария большинства собственных фильмов. ',
+			'Елхов Юрий Александрович (7.12.1940, Москва, Россия), режиссер, оператор, сценарист. Окончил Чимкентский политехникум (1960) и ВГИК (1970). Работал на к/с «Казахфильм». С 1971 — на к/с «Беларусьфильм» в качестве оператора, с 1988 — и в качестве режиссера. Кинорежиссёр-постановщик художественных и телевизионных фильмов высшей категории. Кинооператор-постановщик художественных и телевизионных фильмов высшей категории. Кинодраматург игровых и документальных фильмов.', 
+			'Маргари́та Наи́мовна Касы́мова (тадж. Марворид Қосимова; род. 10 апреля 1938, Сталинабад, Таджикская ССР, ныне Душанбе, Таджикистан) — советская, белорусская и таджикская киноактриса, кинорежиссёр и сценарист. Заслуженный деятель искусств Таджикской ССР (1976).'
+		],
 		workSample: 'Пример произведения автора',
 		deathDate: ['21 февраля 1967', '-', '25 ноября 2018', '-', '-'],
 		profTitle: 'Профессия',
-        common_info: [
-            'Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'
-        ], //UPDATE!!
-        far_jump: 'Перейти', //UPDATE!!
-        teamMembers: [
-        {name: 'Guy', info: 'Very cool', link: 'spacex.com'}, 
-        {name: 'Guy', info: 'Very cool', link: 'spacex.com'},
-        {name: 'Guy', info: 'Very cool', link: 'spacex.com'}], //UPDATE!!
+		common_info: [
+			'Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'
+		], //UPDATE!!
+		far_jump: 'Перейти', //UPDATE!!
+		teamMembers: [
+			{name: 'Шлык Павел', info: 'Положительными чертами в характере Павла являются надежность, доброта, нежность, привязанность. Характер у Павла гармоничен. В нем сочетается интеллект, общительность и высокая нравственность. Павел также обладает развитой интуицией. Он любознателен. ', link: 'spacex.com'}, 
+			{name: 'Малявко Никита', info: 'Никита - абсолютный лидер, не признающий авторитетов, способный вести за собой людей. Он умеет пользоваться своим обаянием и не выносит превосходства над собой. Внешне — заводила и душа компании, он может казаться мягким, но внутри это жесткий и даже тяжелый человек.', link: 'spacex.com'},
+			{name: 'Малиновский Андрей', info: 'Андрей, это человек, который умеет признавать ошибки и легко принимает чужое мнение, потому как не любит конфликтные ситуации и проявления агрессии. Умеет философски рассуждать, отличный слушатель и советчик, прекрасный помощник.', link: 'spacex.com'}], //UPDATE!!
 		profType: ['Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'],
 		gallery: [
 			['Лесная быль', 'Капитанская дочка', 'Цогт Тайж', 'Булат Батыр', 'Крылья холопа'], //first author
