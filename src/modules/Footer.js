@@ -6,7 +6,9 @@ export const Footer = () => {
           <div className='footer'>
                 <div className='card'>
                     <div className='card-body'>
-                        Very usefull info
+		 
+						<i class="fa fa-github"></i>
+                    	Built with love ❤️ by amazing <a href="https://github.com/iuw-team">team</a>.
                     </div>
                 </div>
           </div>
