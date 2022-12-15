@@ -33,9 +33,9 @@ export const messages = {
 		],
 		far_jump: 'View',
 		teamMembers: [
-		{name: 'Shlyk Pavel', info: 'Positive traits in Pavel\'s character are reliability, kindness, tenderness, affection. Paul\'s character is harmonious. It combines intelligence, sociability and high morality. Paul also has a developed intuition. He is inquisitive. ', link: 'spacex.com'},
-		{name: 'Malyavko Nikita', info: 'Nikita is an absolute leader who doesn\'t recognize authorities and is able to lead people. He knows how to use his charm and cannot stand superiority over himself. Outwardly, the soul of the company also turned on, he may seem soft, but inside he is a hard and even heavy person.', link: 'spacex.com'},
-		{name: 'Malinovsky Andrey', info: 'Andrey, this is a person who knows how to admit mistakes and easily accepts someone else\'s opinion, because he does not like conflict situations and manifestations of aggression. Able to think philosophically, excellent listener and adviser, excellent assistant.', link: 'spacex.com'}], //UPDATE!!
+		{name: 'Shlyk Pavel', info: 'Positive traits in Pavel\'s character are reliability, kindness, tenderness, affection. Paul\'s character is harmonious. It combines intelligence, sociability and high morality. Paul also has a developed intuition. He is inquisitive. ', link: 'https://github.com/Paval-from-Belarus'},
+		{name: 'Malyavko Nikita', info: 'Nikita is an absolute leader who doesn\'t recognize authorities and is able to lead people. He knows how to use his charm and cannot stand superiority over himself. Outwardly, the soul of the company also turned on, he may seem soft, but inside he is a hard and even heavy person.', link: 'https://github.com/Katletos'},
+		{name: 'Malinovsky Andrey', info: 'Andrey, this is a person who knows how to admit mistakes and easily accepts someone else\'s opinion, because he does not like conflict situations and manifestations of aggression. Able to think philosophically, excellent listener and adviser, excellent assistant.', link: 'https://github.com/tpouhuk'}], //UPDATE!!
 		profTitle: 'Occupation',
 		profType: ['Film director, writer', 'Film director, actor', 'Film director, screenwriter, film producer, cinematographer', 'Film direction, cinematographer, screenwriter, film producer', 'Actress, film director, screenwriter'],
 		gallery: [
@@ -257,9 +257,9 @@ export const messages = {
 		], //UPDATE!!
 		far_jump: 'Перейти', //UPDATE!!
 		teamMembers: [
-			{name: 'Шлык Павел', info: 'Положительными чертами в характере Павла являются надежность, доброта, нежность, привязанность. Характер у Павла гармоничен. В нем сочетается интеллект, общительность и высокая нравственность. Павел также обладает развитой интуицией. Он любознателен. ', link: 'spacex.com'}, 
-			{name: 'Малявко Никита', info: 'Никита - абсолютный лидер, не признающий авторитетов, способный вести за собой людей. Он умеет пользоваться своим обаянием и не выносит превосходства над собой. Внешне — заводила и душа компании, он может казаться мягким, но внутри это жесткий и даже тяжелый человек.', link: 'spacex.com'},
-			{name: 'Малиновский Андрей', info: 'Андрей, это человек, который умеет признавать ошибки и легко принимает чужое мнение, потому как не любит конфликтные ситуации и проявления агрессии. Умеет философски рассуждать, отличный слушатель и советчик, прекрасный помощник.', link: 'spacex.com'}], //UPDATE!!
+			{name: 'Шлык Павел', info: 'Положительными чертами в характере Павла являются надежность, доброта, нежность, привязанность. Характер у Павла гармоничен. В нем сочетается интеллект, общительность и высокая нравственность. Павел также обладает развитой интуицией. Он любознателен. ', link: 'https://github.com/tpouhuk'}, 
+			{name: 'Малявко Никита', info: 'Никита - абсолютный лидер, не признающий авторитетов, способный вести за собой людей. Он умеет пользоваться своим обаянием и не выносит превосходства над собой. Внешне — заводила и душа компании, он может казаться мягким, но внутри это жесткий и даже тяжелый человек.', link: 'https://github.com/Katletos'},
+			{name: 'Малиновский Андрей', info: 'Андрей, это человек, который умеет признавать ошибки и легко принимает чужое мнение, потому как не любит конфликтные ситуации и проявления агрессии. Умеет философски рассуждать, отличный слушатель и советчик, прекрасный помощник.', link: 'https://github.com/tpouhuk'}], //UPDATE!!
 		profType: ['Кинорежиссёр, сценарист', 'Кинорежиссёр, актёр', 'Кинорежиссёр, сценарист, кинопродюсер, кинооператор', 'Кинорежиссёр, кинооператор', 'Актриса, кинорежиссёр, сценарист'],
 		gallery: [
 			['Лесная быль', 'Капитанская дочка', 'Цогт Тайж', 'Булат Батыр', 'Крылья холопа'], //first author
