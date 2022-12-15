@@ -18,7 +18,7 @@ export const messages = {
 		articleAbout: 'About the author',
 		searchButton: 'Search',
 		nextButton: 'Next',
-		prevButton: 'Prev',
+		prevButton: 'Previous',
 		dayAuthorTitle: 'Author of the moment',
 		about_us: 'About project',
 		about_us_info: 'Of all the arts, cinema is the most important for us...', 
