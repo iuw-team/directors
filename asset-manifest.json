@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/directors/static/css/main.62d30052.css",
-    "main.js": "/directors/static/js/main.a3cd42d7.js",
+    "main.css": "/directors/static/css/main.7b81c8fa.css",
+    "main.js": "/directors/static/js/main.b7b28e10.js",
     "static/js/787.a0b1cdd3.chunk.js": "/directors/static/js/787.a0b1cdd3.chunk.js",
     "static/media/Dmitry_Ekaterina.jpg": "/directors/static/media/Dmitry_Ekaterina.31aba4dffeba9d7e50bf.jpg",
     "static/media/Dmitry_Leto_Volkov.png": "/directors/static/media/Dmitry_Leto_Volkov.099ceb83f15d4ccd24d3.png",
@@ -17,6 +17,7 @@
     "static/media/Tarich_Flyers.jpg": "/directors/static/media/Tarich_Flyers.93129ead3365ead05df5.jpg",
     "static/media/Tarich_mongol.jpg": "/directors/static/media/Tarich_mongol.a5963c1f2f7be0317232.jpg",
     "static/media/Dmitry_Diversant_Krim.jpg": "/directors/static/media/Dmitry_Diversant_Krim.8732cebadfd02734491d.jpg",
+    "static/media/pavel.jpg": "/directors/static/media/pavel.313fcac046dc3ecf4109.jpg",
     "static/media/Dmitry_Uhodyaschaya_Natura.jpg": "/directors/static/media/Dmitry_Uhodyaschaya_Natura.417d0496cb37b4955dde.jpg",
     "static/media/Yuri_Anomaliya.jpg": "/directors/static/media/Yuri_Anomaliya.c1beff8fe42876c724ba.jpg",
     "static/media/Dmitriy_Vladimirovich.jpg": "/directors/static/media/Dmitriy_Vladimirovich.b6754def970778c8b184.jpg",
@@ -38,12 +39,12 @@
     "static/media/baby-carriage.svg": "/directors/static/media/baby-carriage.82a6bede2099822e2ed6b995f851e087.svg",
     "index.html": "/directors/index.html",
     "static/media/monument.svg": "/directors/static/media/monument.e037cf4d978dba041d89ecf7d71dc354.svg",
-    "main.62d30052.css.map": "/directors/static/css/main.62d30052.css.map",
-    "main.a3cd42d7.js.map": "/directors/static/js/main.a3cd42d7.js.map",
+    "main.7b81c8fa.css.map": "/directors/static/css/main.7b81c8fa.css.map",
+    "main.b7b28e10.js.map": "/directors/static/js/main.b7b28e10.js.map",
     "787.a0b1cdd3.chunk.js.map": "/directors/static/js/787.a0b1cdd3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62d30052.css",
-    "static/js/main.a3cd42d7.js"
+    "static/css/main.7b81c8fa.css",
+    "static/js/main.b7b28e10.js"
   ]
 }
