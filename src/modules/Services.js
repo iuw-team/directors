@@ -124,7 +124,9 @@ export const setArticleId = (id) => {
 }
 export const getArticleId = () => { 
   return ArticleId};
-
+export const getArticleCnt = () => {
+  return arrTitleImages.length;
+}
 const DEFAULT_IMAGE_WIDTH = 200;
 const DEFAULT_IMAGE_HEIGHT = 300;
 const arrTitleImages = [TarichImage, DmitriyImage, NikitaImage, ElhovImage, MargaritaImage];

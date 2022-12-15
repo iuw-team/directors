@@ -54,7 +54,7 @@ useEffect(() => {
     )}
     {pageType == PageType.Article && (
         <div>
-        <Description authorId = {authorId}></Description>
+    <Description authorId = {authorId} handlePage={handleChangePage}></Description>
     <Milestones authorId={authorId}></Milestones>
     <Gallery authorId= {authorId}></Gallery>
     <MapPoints authorId= {authorId}></MapPoints>
