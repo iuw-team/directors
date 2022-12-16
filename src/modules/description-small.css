@@ -1,0 +1,33 @@
+.common-info-contatiner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+  .common-info {
+    table-layout: auto;
+    border-collapse: collapse;    
+  }
+  .common-info__title-image {
+    text-align: center;
+  }
+  
+  .common-info__title {
+    font-size:xx-large;
+    text-align: center;
+    background-color: #eaecf0;
+  }
+  .common-info__text {
+    text-align: left;
+    padding-bottom: 3%;
+  }
+  .common-info__text-title{
+    padding-left: 5%;
+  }
+  .common-info__text-info {
+    padding-left: 3%;
+    padding-right: 5%;
+  }
+  .switch-button__container {
+    display: flex;
+    justify-content: center;
+  }
