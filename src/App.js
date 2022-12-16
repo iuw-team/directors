@@ -25,37 +25,64 @@ import { PageType } from './modules/Services';
 import { TeamWorkers } from './modules/titlePage/team_workers';
 import {MainPage} from './pages/mainPage';
 import {Article} from './pages/article'
-import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter} from 'react-router-dom';
+import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter, Switch} from 'react-router-dom';
 function App() {
 const getInitialLocale = () => {
   const savedLocale = localStorage.getItem('locale');
   return (savedLocale || LOCALES.ENGLISH);
 }
+const getInitialPage = () => {
+  const savedPage = JSON.parse(localStorage.getItem('pageInfo'));
+  if(savedPage == null)
+    return {type: PageType.Main, info:''};
+
+  return savedPage;
+}
+
+const setPath = (pageInfo) => {
+  let strPath = new String();
+  switch(pageInfo.type){
+    case PageType.Main: 
+        strPath = '/';
+        break;
+    case PageType.Directors:
+        strPath = '/directors';
+        break;
+    case PageType.Article:
+        strPath = '/article' + parseInt(pageInfo.index);
+        break;
+    default:
+        strPath = '/';
+        alert('Unknown path');
+
+  }
+  //window.location.href = strPath;
+}
+const [currPageInfo, setPageInfo] = useState(getInitialPage());
 const [currLocale, setCurrLocale] = useState(getInitialLocale());
-//const [pageType, setPageType] = useState(PageType.Main);
-const handleChangePage = (pageType) => {
-  // setPageType(pageType);
-  if(pageType == PageType.Article)
-      window.location.href = '/directors/article' + parseInt(getArticleId());    
+//setPath(currPageInfo);
+const handleChangePage = (pageInfo) => {
+//  localStorage.setItem('pageInfo', JSON.stringify(pageInfo));
+ // setPageInfo(pageInfo);
+ // setPath(pageInfo);
 }
 
 const handleChangeLang = (value) =>{
     setCurrLocale(value);
     localStorage.setItem('locale', value)
 };
-
 return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path='/directors' element={<MainPage handlePage={handleChangePage}/>}></Route>
-        <Route path='/directors/gallery' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
+        <Route path='/' element={<MainPage handlePage={handleChangePage}/>}></Route>
+        <Route path='/directors' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
         {Array.from({length: getArticleCnt()}, (_, index) =>(
-          <Route path= {'/directors/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
+          <Route path= {'/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
         ))}
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
     <Footer></Footer>
     </IntlProvider>
 

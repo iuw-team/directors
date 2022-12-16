@@ -14,24 +14,23 @@ export const Description = ({authorId, handlePage}) => {
     const arrDeathDate  = intl.messages['deathDate'];
     const arrProfType   = intl.messages['profType'];
     const handleNextPage = () => {
-        // let currId = getArticleId();
-        // if(currId < getArticleCnt() - 1)
-        //     setArticleId(currId + 1);
-        handlePage(PageType.Article);
+        let nextId = (authorId + 1) < getArticleCnt() ? authorId + 1 : authorId;
+        handlePage({type: PageType.Article, index: nextId});
     }
     const handlePrevPage = () => {
         // let currId = getArticleId();
         // if(currId > 0)
         //     setArticleId(currId - 1);
-        handlePage(PageType.Article);
+        let prevId =  (authorId > 0) ? authorId - 1 : authorId;
+        handlePage({type: PageType.Article, index: prevId});
     }
     return(
         <Container>
                 <ButtonGroup className="switch-button__container" >
-                    <Button href={'/directors/article' + parseInt(authorId != 0 ? (authorId - 1) : authorId)} className="switch-button__button" size='lg' onClick={handlePrevPage}>
+                    <Button href={"/article" + parseInt((authorId > 0) ? authorId - 1 : authorId)} className="switch-button__button" size='lg' onClick={handlePrevPage}>
                         <FormattedMessage id='prevButton'></FormattedMessage>
                     </Button>
-                    <Button href={'/directors/article' + parseInt((authorId < (getArticleCnt() - 1) ? authorId + 1 : authorId))} className="switch-button__button" size='lg' onClick={handleNextPage}>
+                    <Button href={"/article" + parseInt((authorId + 1) < getArticleCnt() ? authorId + 1 : authorId)} className="switch-button__button" size='lg' onClick={handleNextPage}>
                         <FormattedMessage id='nextButton'></FormattedMessage>
                     </Button>
                 </ButtonGroup>

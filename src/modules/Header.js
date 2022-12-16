@@ -9,7 +9,6 @@ import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, PageType, setArticleId } from './Services';
 import { Tiplist } from './Tooltip';
-import { findAllInRenderedTree } from 'react-dom/test-utils';
 const languages = [
     {native: 'English', code: LOCALES.ENGLISH},
     {native: 'Русский', code: LOCALES.RUSSIAN}];
@@ -28,10 +27,10 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
     const arrDirectors = intl.messages['authorName'];
     const [searchTips, setSearchTips] = useState([]);
     const switchMain = () => {
-      handlePage(PageType.Main);
+      handlePage({type: PageType.Main});
     }
     const switchDirectors = () => {
-      handlePage(PageType.Directors);
+      handlePage({type: PageType.Directors});
     }
     const handleSearhPage = () => {
         let fullName = searchRef.current.value;
@@ -40,8 +39,8 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
           alert("No such author");
           return;
         }
-        setArticleId(authorId);
-        handlePage(PageType.Article);
+        window.location.href = '/article' + parseInt(authorId);
+        handlePage({type: PageType.Article, index: authorId});
         setSearchTips([]);
         searchRef.current.value = '';
     }
@@ -66,7 +65,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
       <div className="header">
               <Navbar bg="light" expand="lg">
         <Container>
-        <Navbar.Brand href="/directors" onClick={switchMain}>
+        <Navbar.Brand href="/" onClick={switchMain}>
             {getIcon(IconType.AppLogo,
                 {
                   size: DEFAULT_LOGO_SIZE,
@@ -77,10 +76,10 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
         </Navbar.Brand>
         <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
           <Nav className="">
-          <Nav.Link href="/directors" onClick={switchMain}>
+          <Nav.Link href="/" onClick={switchMain}>
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="/directors/gallery" onClick={switchDirectors}>
+            <Nav.Link href="/directors" onClick={switchDirectors}>
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
           </Nav>
@@ -94,7 +93,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
               onChange={handleInputChange}
 
             />
-            <Button href="" variant="outline-success" onClick={handleSearhPage}>
+            <Button variant="outline-success" onClick={handleSearhPage}>
              <FormattedMessage id='searchButton'></FormattedMessage>
             </Button>
           </Form>
