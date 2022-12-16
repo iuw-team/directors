@@ -6,7 +6,7 @@ import { Table, Card, ButtonGroup, Button, Container, Col, Row} from 'react-boot
 import { getArticleCnt, getArticleId, getTitleImageRef, getTitleImage, PageType, setArticleId } from './Services';
 import { FormatError } from 'intl-messageformat';
 import { getActiveElement } from '@testing-library/user-event/dist/utils';
-
+import { Link } from 'react-router-dom';
 export const Description = ({authorId, handlePage}) => {
     const intl = useIntl();
     const arrAuthorName = intl.messages['authorName'];
@@ -14,24 +14,23 @@ export const Description = ({authorId, handlePage}) => {
     const arrDeathDate  = intl.messages['deathDate'];
     const arrProfType   = intl.messages['profType'];
     const handleNextPage = () => {
-        let currId = getArticleId();
-        if(currId <(getArticleCnt() - 1))
-            setArticleId(currId + 1);
-        handlePage(PageType.Article);
+        let nextId = (authorId + 1) < getArticleCnt() ? authorId + 1 : authorId;
+        handlePage({type: PageType.Article, index: nextId});
     }
     const handlePrevPage = () => {
-        let currId = getArticleId();
-        if(currId > 0)
-            setArticleId(currId - 1);
-        handlePage(PageType.Article);
+        // let currId = getArticleId();
+        // if(currId > 0)
+        //     setArticleId(currId - 1);
+        let prevId =  (authorId > 0) ? authorId - 1 : authorId;
+        handlePage({type: PageType.Article, index: prevId});
     }
     return(
         <Container>
                 <ButtonGroup className="switch-button__container" >
-                    <Button className="switch-button__button" size='lg' onClick={handlePrevPage}>
+                    <Button as={Link} to={"/article" + parseInt((authorId > 0) ? authorId - 1 : authorId)} className="switch-button__button" size='lg' onClick={handlePrevPage}>
                         <FormattedMessage id='prevButton'></FormattedMessage>
                     </Button>
-                    <Button className="switch-button__button" size='lg' onClick={handleNextPage}>
+                    <Button as={Link} to={"/article" + parseInt((authorId + 1) < getArticleCnt() ? authorId + 1 : authorId)} className="switch-button__button" size='lg' onClick={handleNextPage}>
                         <FormattedMessage id='nextButton'></FormattedMessage>
                     </Button>
                 </ButtonGroup>

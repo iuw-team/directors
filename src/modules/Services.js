@@ -118,9 +118,9 @@ export const getIcon = (iconType, iconProps = DEFAULT_ICON_PROPS) => {
     )
   }
 export const PageType = Object.freeze({
-    Main: Symbol('MainPage'),
-    Article: Symbol('Article'),
-    Directors: Symbol('Directors')
+    Main: 'MainPage',
+    Article: 'Article',
+    Directors: 'Directors',
 })
 let ArticleId = 0;
 export const setArticleId = (id) => {

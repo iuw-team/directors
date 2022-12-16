@@ -11,85 +11,50 @@ import  { IntlProvider, FormattedDate, FormattedMessage, FormattedNumber, Format
 import {LOCALES} from './locales/locales';
 import {messages} from './locales/messages';
 import {useState} from 'react'
-import { Milestones } from './modules/Milestones';
-import { Description } from './modules/Description';
-import { Gallery } from './modules/TestGallery';
-import { MapPoints } from './modules/Mapway';
 import {Footer} from './modules/Footer';
 import { getArticleId, getArticleCnt} from './modules/Services';
-import { TitlePerson } from './modules/titlePage/titlePerson';
-import { Container, Card, Col, Row } from 'react-bootstrap';
-import { DirectoryGallery } from './modules/titlePage/dirGallery';
+import { DirectoryGallery } from './pages/dirGallery';
 
 import { PageType } from './modules/Services';
-import { TeamWorkers } from './modules/titlePage/team_workers';
+
+import {MainPage} from './pages/mainPage';
+import {Article} from './pages/article'
+import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter, Switch, useLocation} from 'react-router-dom';
 function App() {
-const locale = LOCALES.ENGLISH;
-const arrLocales = [LOCALES.ENGLISH, LOCALES.RUSSIAN]
-const [authorId, setAuthorId] = useState(getArticleId());
-const [currLocale, setCurrLocale] = useState(locale);
-const [pageType, setPageType] = useState(PageType.Main);
-const handleChangePage = (pageType) => {
-  setPageType(pageType);
-  if(pageType == PageType.Article)
-    setAuthorId(getArticleId());
+const getInitialLocale = () => {
+  const savedLocale = localStorage.getItem('locale');
+  return (savedLocale || LOCALES.ENGLISH);
 }
-const handleFunc = (value) =>{
-    setCurrLocale(value);
-};
+const [currLocale, setCurrLocale] = useState(getInitialLocale());
+const { pathname } = useLocation();
+
 useEffect(() => {
-  window.scrollTo(0,0);
-})
-const dayAuthorId = (Math.floor(Math.random() * 10)) % getArticleCnt();
-  return (
+  window.scrollTo(0, 0);
+}, [pathname]);
+
+const handleChangePage = (pageInfo) => {
+//  localStorage.setItem('pageInfo', JSON.stringify(pageInfo));
+ // setPageInfo(pageInfo);
+ // setPath(pageInfo);
+}
+
+const handleChangeLang = (value) =>{
+    setCurrLocale(value);
+    localStorage.setItem('locale', value)
+};
+return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
-    <Header currentLocale={currLocale} handleFunc={handleFunc}  handlePage={handleChangePage}></Header>
-    {pageType == PageType.Main && (
-      <Container>
-        <Card className="text-center">
-          <Card.Title>
-            <Card.Header className='display-4'>
-              <FormattedMessage id='about_us'/>
-            </Card.Header>
-          </Card.Title>
-          <Card.Body className='display-5'>
-          <blockquote className="blockquote mb-0">
-          <p>
-            {' '}<FormattedMessage id='about_us_info'/>{' '}
-          </p>
-          <footer className="blockquote-footer">
-            <FormattedMessage id='about_us_source'/>
-          </footer>
-        </blockquote>
-          </Card.Body>
-        </Card>
-        <Card className='d-flex justify-content-center'>
-          <Card.Title className='text-center'>
-            <Card.Header className='display-4'>
-              <FormattedMessage id='dayAuthorTitle'/>
-            </Card.Header>
-            <Card.Body className='d-flex justify-content-center'>
-                <TitlePerson authorId={dayAuthorId} handlePage={handleChangePage}></TitlePerson>
-            </Card.Body>
-          </Card.Title>
-        </Card>
-        <TeamWorkers></TeamWorkers>
-      </Container>
-      
-    )}
-    {pageType == PageType.Article && (
-        <div>
-    <Description authorId = {authorId} handlePage={handleChangePage}></Description>
-    <Milestones authorId={authorId}></Milestones>
-    <Gallery authorId= {authorId}></Gallery>
-    <MapPoints authorId= {authorId}></MapPoints>
-        </div>
-    )}
-    {pageType == PageType.Directors && (
-      <DirectoryGallery handlePage={handleChangePage}></DirectoryGallery>
-    )}
+    <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
+      <Routes>
+        <Route path='/' element={<MainPage handlePage={handleChangePage}/>}></Route>
+        <Route path='/directors' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
+        {Array.from({length: getArticleCnt()}, (_, index) =>(
+          <Route path= {'/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
+        ))}
+      </Routes>
     <Footer></Footer>
     </IntlProvider>
+
   );
 }
 

@@ -2,14 +2,13 @@ import React from "react";
 import { Card, ListGroup, Button, Container } from "react-bootstrap";
 import { FormattedMessage, useIntl } from "react-intl";
 import { getTitleImage, getTitleImageRef, PageType, setArticleId } from "../Services";
-
+import {Link} from 'react-router-dom';
 export const TitlePerson = ({authorId, handlePage}) => {
     const intl = useIntl();
     const arrNames = intl.messages['authorName'];
     const arrInfo = intl.messages['common_info'];
     const changePage = () => {
-        setArticleId(authorId);
-        handlePage(PageType.Article);
+        handlePage({type: PageType.Article, index: authorId});
     }
     return(
             <Card style={{ width: '18rem' }}>
@@ -21,7 +20,7 @@ export const TitlePerson = ({authorId, handlePage}) => {
                 {arrInfo[authorId]}
             </Card.Text>
             </Card.Body>
-            <Card.Footer><Button variant="primary" onClick={changePage} href="#articles"><FormattedMessage id='far_jump'></FormattedMessage></Button></Card.Footer>
+            <Card.Footer><Button variant="primary" onClick={changePage} as={Link} to={"/article" + parseInt(authorId)}><FormattedMessage id='far_jump'></FormattedMessage></Button></Card.Footer>
         </Card>
     );
 
