@@ -76,10 +76,10 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
         </Navbar.Brand>
         <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
           <Nav className="">
-          <Nav.Link href="/" onClick={switchMain}>
+          <Nav.Link href="/directors/" onClick={switchMain}>
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="/directors" onClick={switchDirectors}>
+            <Nav.Link href="/directors/directors" onClick={switchDirectors}>
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
           </Nav>

@@ -20,7 +20,7 @@ export const TitlePerson = ({authorId, handlePage}) => {
                 {arrInfo[authorId]}
             </Card.Text>
             </Card.Body>
-            <Card.Footer><Button variant="primary" onClick={changePage} href={"/article" + parseInt(authorId)}><FormattedMessage id='far_jump'></FormattedMessage></Button></Card.Footer>
+            <Card.Footer><Button variant="primary" onClick={changePage} href={"/directors/article" + parseInt(authorId)}><FormattedMessage id='far_jump'></FormattedMessage></Button></Card.Footer>
         </Card>
     );
 

@@ -74,7 +74,7 @@ const handleChangeLang = (value) =>{
 return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
-    <HashRouter>
+    <BrowserRouter basename='/directors'>
       <Routes>
         <Route path='/' element={<MainPage handlePage={handleChangePage}/>}></Route>
         <Route path='/directors' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
@@ -82,7 +82,7 @@ return (
           <Route path= {'/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
         ))}
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
     <Footer></Footer>
     </IntlProvider>
 
