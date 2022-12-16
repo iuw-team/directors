@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/directors/static/css/main.23c08d17.css",
-    "main.js": "/directors/static/js/main.a3a7bc2e.js",
+    "main.js": "/directors/static/js/main.83d58d4b.js",
     "static/js/787.a0b1cdd3.chunk.js": "/directors/static/js/787.a0b1cdd3.chunk.js",
     "static/media/Dmitry_Ekaterina.jpg": "/directors/static/media/Dmitry_Ekaterina.31aba4dffeba9d7e50bf.jpg",
     "static/media/Dmitry_Leto_Volkov.png": "/directors/static/media/Dmitry_Leto_Volkov.099ceb83f15d4ccd24d3.png",
@@ -40,11 +40,11 @@
     "index.html": "/directors/index.html",
     "static/media/monument.svg": "/directors/static/media/monument.e037cf4d978dba041d89ecf7d71dc354.svg",
     "main.23c08d17.css.map": "/directors/static/css/main.23c08d17.css.map",
-    "main.a3a7bc2e.js.map": "/directors/static/js/main.a3a7bc2e.js.map",
+    "main.83d58d4b.js.map": "/directors/static/js/main.83d58d4b.js.map",
     "787.a0b1cdd3.chunk.js.map": "/directors/static/js/787.a0b1cdd3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.23c08d17.css",
-    "static/js/main.a3a7bc2e.js"
+    "static/js/main.83d58d4b.js"
   ]
 }
