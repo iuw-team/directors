@@ -94,7 +94,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
               onChange={handleInputChange}
 
             />
-            <Button variant="outline-success" onClick={handleSearhPage}>
+            <Button href="article" variant="outline-success" onClick={handleSearhPage}>
              <FormattedMessage id='searchButton'></FormattedMessage>
             </Button>
           </Form>
