@@ -66,7 +66,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
       <div className="header">
               <Navbar bg="light" expand="lg">
         <Container>
-        <Navbar.Brand href="/" onClick={switchMain}>
+        <Navbar.Brand href="/directors" onClick={switchMain}>
             {getIcon(IconType.AppLogo,
                 {
                   size: DEFAULT_LOGO_SIZE,
@@ -77,10 +77,10 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
         </Navbar.Brand>
         <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
           <Nav className="">
-          <Nav.Link href="/" onClick={switchMain}>
+          <Nav.Link href="/directors" onClick={switchMain}>
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="/directors" onClick={switchDirectors}>
+            <Nav.Link href="/directors/gallery" onClick={switchDirectors}>
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
           </Nav>
@@ -94,7 +94,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
               onChange={handleInputChange}
 
             />
-            <Button variant="outline-success" href="#articles"onClick={handleSearhPage}>
+            <Button variant="outline-success" onClick={handleSearhPage}>
              <FormattedMessage id='searchButton'></FormattedMessage>
             </Button>
           </Form>

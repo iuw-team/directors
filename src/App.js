@@ -36,7 +36,7 @@ const [currLocale, setCurrLocale] = useState(getInitialLocale());
 const handleChangePage = (pageType) => {
   // setPageType(pageType);
   if(pageType == PageType.Article)
-      window.location.href = '/article' + parseInt(getArticleId());    
+      window.location.href = '/directors/article' + parseInt(getArticleId());    
 }
 
 const handleChangeLang = (value) =>{
