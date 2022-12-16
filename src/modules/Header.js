@@ -9,7 +9,7 @@ import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, PageType, setArticleId } from './Services';
 import { Tiplist } from './Tooltip';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const languages = [
     {native: 'English', code: LOCALES.ENGLISH},
     {native: 'Русский', code: LOCALES.RUSSIAN}];
@@ -41,7 +41,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
           alert("No such author");
           return;
         }
-        window.location.href = '/#/article' + parseInt(authorId);
+        window.location.href = '/directors/#/article' + parseInt(authorId);
         handlePage({type: PageType.Article, index: authorId});
         setSearchTips([]);
         searchRef.current.value = '';
