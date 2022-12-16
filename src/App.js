@@ -49,10 +49,10 @@ return (
     <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage handlePage={handleChangePage}/>}></Route>
-        <Route path='/directors' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
+        <Route path='/directors' element={<MainPage handlePage={handleChangePage}/>}></Route>
+        <Route path='/directors/gallery' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
         {Array.from({length: getArticleCnt()}, (_, index) =>(
-          <Route path= {'/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
+          <Route path= {'/directors/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
         ))}
       </Routes>
     </BrowserRouter>
