@@ -9,6 +9,7 @@ import { Form, Button, } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { DEFAULT_ICON_SIZE, getIcon, getLangIcon, getLangIconRef, IconType, PageType, setArticleId } from './Services';
 import { Tiplist } from './Tooltip';
+import { Link } from 'react-router-dom';
 const languages = [
     {native: 'English', code: LOCALES.ENGLISH},
     {native: 'Русский', code: LOCALES.RUSSIAN}];
@@ -26,6 +27,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
     const searchRef = useRef(null);
     const arrDirectors = intl.messages['authorName'];
     const [searchTips, setSearchTips] = useState([]);
+    let articleId;
     const switchMain = () => {
       handlePage({type: PageType.Main});
     }
@@ -39,7 +41,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
           alert("No such author");
           return;
         }
-        window.location.href = '/article' + parseInt(authorId);
+        window.location.href = '/#/article' + parseInt(authorId);
         handlePage({type: PageType.Article, index: authorId});
         setSearchTips([]);
         searchRef.current.value = '';
@@ -65,7 +67,7 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
       <div className="header">
               <Navbar bg="light" expand="lg">
         <Container>
-        <Navbar.Brand href="/" onClick={switchMain}>
+        <Navbar.Brand as={Link} to="/" onClick={switchMain}>
             {getIcon(IconType.AppLogo,
                 {
                   size: DEFAULT_LOGO_SIZE,
@@ -76,12 +78,14 @@ export const Header = ({ currentLocale, handleFunc, handlePage}) => {
         </Navbar.Brand>
         <Navbar.Collapse className="d-flex justify-content-center" id="basic-navbar-nav">
           <Nav className="">
-          <Nav.Link href="/directors/" onClick={switchMain}>
+            <Nav.Link as={Link} to='/' onClick={switchMain}>
               <FormattedMessage id='mainTitle'></FormattedMessage>
             </Nav.Link>
-            <Nav.Link href="/directors/directors" onClick={switchDirectors}>
+            
+            <Nav.Link as={Link} to='/directors'onClick={switchDirectors}>  
               <FormattedMessage id='articlesTitle'></FormattedMessage>
             </Nav.Link>
+            
           </Nav>
           <Form className="d-flex ms-auto">
             <Form.Control

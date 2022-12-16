@@ -11,56 +11,27 @@ import  { IntlProvider, FormattedDate, FormattedMessage, FormattedNumber, Format
 import {LOCALES} from './locales/locales';
 import {messages} from './locales/messages';
 import {useState} from 'react'
-import { Milestones } from './modules/Milestones';
-import { Description } from './modules/Description';
-import { Gallery } from './modules/TestGallery';
-import { MapPoints } from './modules/Mapway';
 import {Footer} from './modules/Footer';
 import { getArticleId, getArticleCnt} from './modules/Services';
-import { TitlePerson } from './modules/titlePage/titlePerson';
-import { Container, Card, Col, Row } from 'react-bootstrap';
 import { DirectoryGallery } from './pages/dirGallery';
 
 import { PageType } from './modules/Services';
-import { TeamWorkers } from './modules/titlePage/team_workers';
+
 import {MainPage} from './pages/mainPage';
 import {Article} from './pages/article'
-import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter, Switch} from 'react-router-dom';
+import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter, Switch, useLocation} from 'react-router-dom';
 function App() {
 const getInitialLocale = () => {
   const savedLocale = localStorage.getItem('locale');
   return (savedLocale || LOCALES.ENGLISH);
 }
-const getInitialPage = () => {
-  const savedPage = JSON.parse(localStorage.getItem('pageInfo'));
-  if(savedPage == null)
-    return {type: PageType.Main, info:''};
-
-  return savedPage;
-}
-
-const setPath = (pageInfo) => {
-  let strPath = new String();
-  switch(pageInfo.type){
-    case PageType.Main: 
-        strPath = '/';
-        break;
-    case PageType.Directors:
-        strPath = '/directors';
-        break;
-    case PageType.Article:
-        strPath = '/article' + parseInt(pageInfo.index);
-        break;
-    default:
-        strPath = '/';
-        alert('Unknown path');
-
-  }
-  //window.location.href = strPath;
-}
-const [currPageInfo, setPageInfo] = useState(getInitialPage());
 const [currLocale, setCurrLocale] = useState(getInitialLocale());
-//setPath(currPageInfo);
+const { pathname } = useLocation();
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [pathname]);
+
 const handleChangePage = (pageInfo) => {
 //  localStorage.setItem('pageInfo', JSON.stringify(pageInfo));
  // setPageInfo(pageInfo);
@@ -74,7 +45,6 @@ const handleChangeLang = (value) =>{
 return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
-    <BrowserRouter basename='/directors'>
       <Routes>
         <Route path='/' element={<MainPage handlePage={handleChangePage}/>}></Route>
         <Route path='/directors' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
@@ -82,10 +52,8 @@ return (
           <Route path= {'/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
         ))}
       </Routes>
-    </BrowserRouter>
     <Footer></Footer>
     </IntlProvider>
-
 
   );
 }
