@@ -25,7 +25,7 @@ import { PageType } from './modules/Services';
 import { TeamWorkers } from './modules/titlePage/team_workers';
 import {MainPage} from './pages/mainPage';
 import {Article} from './pages/article'
-import { useParams, BrowserRouter, Link, Router, Routes, Route} from 'react-router-dom';
+import { useParams, BrowserRouter, Link, Router, Routes, Route, HashRouter} from 'react-router-dom';
 function App() {
 const getInitialLocale = () => {
   const savedLocale = localStorage.getItem('locale');
@@ -47,7 +47,7 @@ const handleChangeLang = (value) =>{
 return (
     <IntlProvider messages={messages[currLocale]} locale = {currLocale} defaultLocale = {LOCALES.ENGLISH}>
     <Header currentLocale={currLocale} handleFunc={handleChangeLang}  handlePage={handleChangePage}></Header>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/directors' element={<MainPage handlePage={handleChangePage}/>}></Route>
         <Route path='/directors/gallery' element={<DirectoryGallery handlePage={handleChangePage}/>}></Route>
@@ -55,7 +55,7 @@ return (
           <Route path= {'/directors/article' + parseInt(index)} element={<Article authorId={index} handlePage={handleChangePage}></Article>}></Route>
         ))}
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     <Footer></Footer>
     </IntlProvider>
 
